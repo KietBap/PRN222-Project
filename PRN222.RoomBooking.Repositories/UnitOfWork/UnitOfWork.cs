@@ -16,9 +16,21 @@ namespace PRN222.RoomBooking.Repositories.UnitOfWork
             await _dbContext.SaveChangesAsync();
         }
 
-        public IGenericRepository<T> GetRepository<T>() where T : class
+        private IGenericRepository<T> GetRepository<T>() where T : class
         {
             return new GenericRepository<T>(_dbContext);
+        }
+        public IGenericRepository<User> UserRepository()
+        {
+            return GetRepository<User>();
+        }
+        public IGenericRepository<Room> RoomRepository()
+        {
+            return GetRepository<Room>();
+        }
+        public IGenericRepository<Campus> CampusRepository()
+        {
+            return GetRepository<Campus>();
         }
     }
 }

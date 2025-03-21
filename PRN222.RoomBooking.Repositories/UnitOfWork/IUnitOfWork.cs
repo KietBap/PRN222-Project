@@ -1,8 +1,12 @@
-﻿namespace PRN222.RoomBooking.Repositories.UnitOfWork
+﻿using PRN222.RoomBooking.Repositories.Data;
+
+namespace PRN222.RoomBooking.Repositories.UnitOfWork
 {
     public interface IUnitOfWork
     {
         Task SaveAsync();
-        IGenericRepository<T> GetRepository<T>() where T : class;
+        IGenericRepository<User> UserRepository();
+        IGenericRepository<Room> RoomRepository();
+        IGenericRepository<Campus> CampusRepository();
     }
 }
