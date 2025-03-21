@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRN222.RoomBooking.Repositories", "PRN222.RoomBooking.Repositories\PRN222.RoomBooking.Repositories.csproj", "{A839F663-13C4-4BC8-894B-18B5B62A6B80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRN222.RoomBooking.Services", "PRN222.RoomBooking.Services\PRN222.RoomBooking.Services.csproj", "{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A839F663-13C4-4BC8-894B-18B5B62A6B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A839F663-13C4-4BC8-894B-18B5B62A6B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A839F663-13C4-4BC8-894B-18B5B62A6B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A839F663-13C4-4BC8-894B-18B5B62A6B80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D9757C0-CE82-4254-A6C2-547EDFB5927C}
+	EndGlobalSection
+EndGlobal

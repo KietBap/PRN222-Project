@@ -1,0 +1,233 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|d:\\major\\ki_7_sp25\\prn222\\projectv2\\prn222.fpturoombooking\\prn222.roombooking.services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|solutionrelative:prn222.roombooking.services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\prn222.roombooking.services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|solutionrelative:prn222.roombooking.services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\prn222.roombooking.repositories\\unitofwork\\genenicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|solutionrelative:prn222.roombooking.repositories\\unitofwork\\genenicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\prn222.roombooking.repositories\\unitofwork\\igenenicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|solutionrelative:prn222.roombooking.repositories\\unitofwork\\igenenicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\prn222.roombooking.repositories\\unitofwork\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|solutionrelative:prn222.roombooking.repositories\\unitofwork\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\prn222.roombooking.repositories\\unitofwork\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|solutionrelative:prn222.roombooking.repositories\\unitofwork\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\prn222.roombooking.repositories\\data\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|solutionrelative:prn222.roombooking.repositories\\data\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\prn222.roombooking.repositories\\data\\roomslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|solutionrelative:prn222.roombooking.repositories\\data\\roomslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\prn222.roombooking.services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|solutionrelative:prn222.roombooking.services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\prn222.roombooking.services\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|solutionrelative:prn222.roombooking.services\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 299,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 45,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 248,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:28:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:28:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RoomSlot.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\Data\\RoomSlot.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Repositories\\Data\\RoomSlot.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\Data\\RoomSlot.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Repositories\\Data\\RoomSlot.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:26:24.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Services\\IUserService.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Services\\IUserService.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Services\\IUserService.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Services\\IUserService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:21:49.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IBookingService.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Services\\IBookingService.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Services\\IBookingService.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Services\\IBookingService.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Services\\IBookingService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:21:35.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookingService.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Services\\BookingService.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Services\\BookingService.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Services\\BookingService.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Services\\BookingService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:20:58.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Services\\UserService.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Services\\UserService.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Services\\UserService.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Services\\UserService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:20:42.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\UnitOfWork\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Repositories\\UnitOfWork\\UnitOfWork.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\UnitOfWork\\UnitOfWork.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Repositories\\UnitOfWork\\UnitOfWork.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:09:57.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\UnitOfWork\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Repositories\\UnitOfWork\\IUnitOfWork.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\UnitOfWork\\IUnitOfWork.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Repositories\\UnitOfWork\\IUnitOfWork.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:09:50.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IGenenicRepository.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\UnitOfWork\\IGenenicRepository.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Repositories\\UnitOfWork\\IGenenicRepository.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\UnitOfWork\\IGenenicRepository.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Repositories\\UnitOfWork\\IGenenicRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:09:40.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GenenicRepository.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\UnitOfWork\\GenenicRepository.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Repositories\\UnitOfWork\\GenenicRepository.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\UnitOfWork\\GenenicRepository.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Repositories\\UnitOfWork\\GenenicRepository.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAcwBQAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:08:38.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\Data\\Booking.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Repositories\\Data\\Booking.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.FPTURoomBooking\\PRN222.RoomBooking.Repositories\\Data\\Booking.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Repositories\\Data\\Booking.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:05:42.071Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
