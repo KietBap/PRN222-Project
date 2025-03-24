@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj": {}
+    "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj": {}
   },
   "projects": {
-    "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj": {
+    "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj",
+        "projectUniqueName": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj",
         "projectName": "PRN222.RoomBooking.Repositories",
-        "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\obj\\",
+        "projectPath": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj",
+        "packagesPath": "C:\\Users\\Kiet Anh\\.nuget\\packages\\",
+        "outputPath": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Repositories\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kiet Anh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\Asus\\.nuget\\packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -95,17 +98,21 @@
         }
       }
     },
-    "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj": {
+    "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj",
+        "projectUniqueName": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj",
         "projectName": "PRN222.RoomBooking.Services",
-        "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\obj\\",
+        "projectPath": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj",
+        "packagesPath": "C:\\Users\\Kiet Anh\\.nuget\\packages\\",
+        "outputPath": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kiet Anh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -113,15 +120,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\Asus\\.nuget\\packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj": {
-                "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj"
+              "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj": {
+                "projectPath": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj"
               }
             }
           }

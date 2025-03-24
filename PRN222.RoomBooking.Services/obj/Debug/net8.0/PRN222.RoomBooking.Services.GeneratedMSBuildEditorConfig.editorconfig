@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PRN222.RoomBooking.Services
-build_property.ProjectDir = D:\FPT\SE7\PRN222\Final\PRN222-Project\PRN222.RoomBooking.Services\
+build_property.ProjectDir = D:\Major\Ki_7_SP25\PRN222\projectv2\PRN222.RoomBooking.Services\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
