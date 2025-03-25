@@ -11,11 +11,11 @@ public partial class RoomSlot
 
     public int SlotNumber { get; set; }
 
-    public DateOnly Date { get; set; }
+    public DateOnly? Date { get; set; }
 
-    public TimeOnly StartTime { get; set; }
+    public TimeOnly? StartTime { get; set; }
 
-    public TimeOnly EndTime { get; set; }
+    public TimeOnly? EndTime { get; set; }
 
     public string Status { get; set; } = null!;
 

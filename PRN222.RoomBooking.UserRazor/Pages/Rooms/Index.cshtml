@@ -1,60 +1,68 @@
 ﻿@page
 @model PRN222.RoomBooking.UserRazor.Pages.Rooms.IndexModel
 
-<h2>Room List</h2>
+<div class="container mt-4">
+    <h2 class="text-primary text-center">Room List</h2>
 
-<form method="get">
-    <div class="form-group">
-        <label>Room Name:</label>
-        <input asp-for="RoomName" class="form-control" />
+    <div class="card p-3 mb-4 shadow-sm">
+        <form method="get" class="row g-2">
+            <div class="col-md-6">
+                <input asp-for="RoomName" class="form-control" placeholder="Room Name" />
+            </div>
+            <div class="col-md-6">
+                <input asp-for="Campus" class="form-control" placeholder="Campus" />
+            </div>
+            <div class="col-12 text-center mt-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label>Campus:</label>
-        <input asp-for="Campus" class="form-control" />
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Room Name</th>
+                        <th>Campus</th>
+                        <th>Capacity</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var room in Model.Rooms)
+                    {
+                        <tr>
+                            <td>@room.RoomName</td>
+                            <td>@room.Campus?.CampusName</td>
+                            <td>@room.Capacity</td>
+                            <td>@room.Status</td>
+                            <td>
+                                <a asp-page="./Details" asp-route-id="@room.RoomId" class="btn btn-info btn-sm">Details</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Search</button>
-</form>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Room Name</th>
-            <th>Campus</th>
-            <th>Capacity</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var room in Model.Rooms)
-        {
-            <tr>
-                <td>@room.RoomName</td>
-                <td>@room.Campus?.CampusName</td>
-                <td>@room.Capacity</td>
-                <td>@room.Status</td>
-                <td>
-                    <a asp-page="./Details" asp-route-id="@room.RoomId" class="btn btn-info btn-sm">Details</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <a asp-page="Index"
+           asp-route-pageNumber="@(Model.PageNumber > 1 ? Model.PageNumber - 1 : 1)"
+           asp-route-roomName="@Model.RoomName"
+           asp-route-campus="@Model.Campus"
+           asp-route-sortBy="@Model.SortBy"
+           class="btn btn-outline-secondary @(Model.PageNumber == 1 ? "disabled" : "")">Previous</a>
 
-<!-- Phân trang -->
-@{
-    var totalPages = (int)Math.Ceiling((double)Model.TotalItems / Model.PageSize);
-    if (totalPages > 1)
-    {
-        <nav>
-            <ul class="pagination">
-                @for (int i = 1; i <= totalPages; i++)
-                {
-                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                        <a class="page-link" href="?page=@i&roomName=@Model.RoomName&campus=@Model.Campus&sortBy=@Model.SortBy">@i</a>
-                    </li>
-                }
-            </ul>
-        </nav>
-    }
-}
+        <span class="mx-3">Page @Model.PageNumber of @Model.TotalPages</span>
+
+        <a asp-page="Index"
+           asp-route-pageNumber="@(Model.PageNumber < Model.TotalPages ? Model.PageNumber + 1 : Model.TotalPages)"
+           asp-route-roomName="@Model.RoomName"
+           asp-route-campus="@Model.Campus"
+           asp-route-sortBy="@Model.SortBy"
+           class="btn btn-outline-secondary @(Model.PageNumber == Model.TotalPages ? "disabled" : "")">Next</a>
+    </div>
+</div>

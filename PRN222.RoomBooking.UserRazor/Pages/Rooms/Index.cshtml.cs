@@ -18,8 +18,9 @@ namespace PRN222.RoomBooking.UserRazor.Pages.Rooms
 
         public List<Room> Rooms { get; set; } = new List<Room>();
         public int TotalItems { get; set; }
-        public int CurrentPage { get; set; } = 1;
-        public int PageSize { get; set; } = 10;
+        public int PageNumber { get; set; } = 1;
+        public int PageSize { get; set; } = 5;
+        public int TotalPages => (int)Math.Ceiling((double)TotalItems / PageSize);
 
         [BindProperty(SupportsGet = true)]
         public string? RoomName { get; set; }
@@ -30,20 +31,25 @@ namespace PRN222.RoomBooking.UserRazor.Pages.Rooms
         [BindProperty(SupportsGet = true)]
         public string? SortBy { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int page = 1)
+        public async Task<IActionResult> OnGetAsync(int pageNumber = 1)
         {
-            CurrentPage = page;
-            
+            PageNumber = pageNumber < 1 ? 1 : pageNumber;
+
             var (rooms, totalItems) = await _roomService.GetRoom(
                 RoomName,
                 Campus,
                 SortBy,
-                CurrentPage,
+                PageNumber,
                 PageSize
             );
 
             Rooms = rooms;
             TotalItems = totalItems;
+
+            if (PageNumber > TotalPages && TotalPages > 0)
+            {
+                PageNumber = TotalPages;
+            }
 
             return Page();
         }
