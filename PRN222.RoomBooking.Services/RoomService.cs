@@ -16,16 +16,44 @@ namespace PRN222.RoomBooking.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<(List<Room>, int totalItems)> GetRoom(string? roomName, string? campus,string? sortBy, int page, int pageSize)
+        public async Task<(List<Room>, int totalItems)> GetRoom(string? roomName, string? campus, string? sortBy, int page, int pageSize)
         {
-            var filters = new List<Expression<Func<Room, bool>>>
+            var filters = new List<Expression<Func<Room, bool>>>();
+
+            // Tìm kiếm theo RoomName, xử lý null và không phân biệt chữ hoa/thường
+            if (!string.IsNullOrEmpty(roomName))
             {
-                p => string.IsNullOrEmpty(roomName) || p.RoomName.Contains(roomName),
-                p => string.IsNullOrEmpty(roomName) || p.Campus.CampusName.Contains(roomName),
-            };
+                filters.Add(p => p.RoomName != null && p.RoomName.ToLower().Contains(roomName.ToLower()));
+            }
+
+            // Tìm kiếm theo CampusName, xử lý null và không phân biệt chữ hoa/thường
+            if (!string.IsNullOrEmpty(campus))
+            {
+                filters.Add(p => p.Campus != null && p.Campus.CampusName != null && p.Campus.CampusName.ToLower().Contains(campus.ToLower()));
+            }
+
+            // Đếm tổng số phòng
             var totalItems = await _unitOfWork.RoomRepository().CountAsync(filters);
-            var rooms = await _unitOfWork.RoomRepository().GetAllAsync(filters, null, true, page,pageSize);
+
+            // Lấy danh sách phòng và bao gồm dữ liệu Campus
+            var rooms = await _unitOfWork.RoomRepository().GetAllAsync(
+                filter: filters,
+                orderBy: null,
+                ascending: true,
+                page: page,
+                pageSize: pageSize,
+                includes: new Expression<Func<Room, object>>[] { r => r.Campus } // Bao gồm Campus
+            );
+
             return (rooms, totalItems);
+        }
+
+        public async Task<Room> GetRoomById(int id)
+        {
+            return await _unitOfWork.RoomRepository().GetByIdAsync(
+                id: id,
+                includes: new Expression<Func<Room, object>>[] { r => r.Campus }
+            );
         }
     }
 }

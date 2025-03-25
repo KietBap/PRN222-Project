@@ -1,0 +1,60 @@
+﻿@page
+@model PRN222.RoomBooking.UserRazor.Pages.Rooms.IndexModel
+
+<h2>Room List</h2>
+
+<form method="get">
+    <div class="form-group">
+        <label>Room Name:</label>
+        <input asp-for="RoomName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Campus:</label>
+        <input asp-for="Campus" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Room Name</th>
+            <th>Campus</th>
+            <th>Capacity</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model.Rooms)
+        {
+            <tr>
+                <td>@room.RoomName</td>
+                <td>@room.Campus?.CampusName</td>
+                <td>@room.Capacity</td>
+                <td>@room.Status</td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@room.RoomId" class="btn btn-info btn-sm">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Phân trang -->
+@{
+    var totalPages = (int)Math.Ceiling((double)Model.TotalItems / Model.PageSize);
+    if (totalPages > 1)
+    {
+        <nav>
+            <ul class="pagination">
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                        <a class="page-link" href="?page=@i&roomName=@Model.RoomName&campus=@Model.Campus&sortBy=@Model.SortBy">@i</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    }
+}

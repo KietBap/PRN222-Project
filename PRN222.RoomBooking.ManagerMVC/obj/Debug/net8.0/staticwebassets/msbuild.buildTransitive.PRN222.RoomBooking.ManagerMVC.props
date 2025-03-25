@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\PRN222.RoomBooking.ManagerMVC.props" />
+</Project>

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PRN222.RoomBooking.Repositories.Data;
 using System.Linq.Expressions;
 
 namespace PRN222.RoomBooking.Repositories.UnitOfWork

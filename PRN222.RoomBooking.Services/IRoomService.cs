@@ -10,5 +10,7 @@ namespace PRN222.RoomBooking.Services
     public interface IRoomService
     {
         Task<(List<Room>, int totalItems)> GetRoom(string? roomName, string? campus,string? sortBy, int page, int pageSize);
+
+        Task<Room> GetRoomById(int id);
     }
 }
