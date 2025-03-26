@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using PRN222.RoomBooking.Repositories.Data;
+using PRN222.RoomBooking.Repositories;
 using PRN222.RoomBooking.Repositories.UnitOfWork;
+using PRN222.RoomBooking.Services;
 
 namespace PRN222.RoomBooking.UserRazor
 {
@@ -13,10 +15,25 @@ namespace PRN222.RoomBooking.UserRazor
             // Add services to the container.
             builder.Services.AddRazorPages();
 
+            builder.Services.AddSignalR();
+
             builder.Services.AddDbContext<FpturoomBookingDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("FPTBookingRoomDB")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionStringDB")));
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddScoped<IBookingService, BookingService>();
+            builder.Services.AddScoped<ICampusService, CampusService>();
+            builder.Services.AddScoped<IRoomService, RoomService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/User/Login"; 
+                    options.LogoutPath = "/User/Logout";
+                    options.AccessDeniedPath = "/AccessDenied";
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                });
 
             var app = builder.Build();
 
@@ -33,6 +50,7 @@ namespace PRN222.RoomBooking.UserRazor
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapRazorPages();

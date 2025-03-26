@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PRN222.RoomBooking.Repositories.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace PRN222.RoomBooking.Repositories.Data;
@@ -11,7 +12,7 @@ public partial class Room
 
     public int Capacity { get; set; }
 
-    public string Status { get; set; } = null!;
+    public RoomStatus Status { get; set; }
 
     public int CampusId { get; set; }
 

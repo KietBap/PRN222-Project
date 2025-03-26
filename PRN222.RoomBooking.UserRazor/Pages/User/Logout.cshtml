@@ -1,0 +1,73 @@
+﻿@page
+@model PRN222.RoomBooking.UserRazor.Pages.User.LogoutModel
+
+@{
+    ViewData["Title"] = "Logout";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #0052cc, #0066ff);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .logout-card {
+        border-radius: 15px;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+        .logout-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .btn-danger {
+        background: #dc3545;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-danger:hover {
+            background: #b02a37;
+            transform: translateY(-2px);
+        }
+
+    .btn-secondary {
+        background: #6c757d;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-secondary:hover {
+            background: #565e64;
+            transform: translateY(-2px);
+        }
+
+    .text-primary {
+        color: #0052cc !important;
+    }
+</style>
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 logout-card" style="width: 28rem;">
+        <div class="card-body text-center">
+            <h3 class="text-primary fw-bold mb-4">Logout</h3>
+            <p class="text-muted mb-4">Are you sure you want to log out?</p>
+            <form method="post" class="d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-danger">Logout</button>
+                <a asp-page="/Rooms/Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

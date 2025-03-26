@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PRN222.RoomBooking.Services
 {
-    internal class CampusService : ICampusService
+    public class CampusService : ICampusService
     {
         private readonly IUnitOfWork _unitOfWork;
         public CampusService(IUnitOfWork unitOfWork)

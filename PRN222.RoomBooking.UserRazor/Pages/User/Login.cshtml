@@ -1,0 +1,134 @@
+﻿@page
+@model PRN222.RoomBooking.UserRazor.Pages.User.LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #0052cc, #0066ff);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .login-card {
+        border-radius: 15px;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+        .login-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #0052cc;
+            box-shadow: 0 0 5px rgba(0, 82, 204, 0.3);
+        }
+
+    .btn-primary {
+        background: #0052cc;
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: #003d99;
+            transform: translateY(-2px);
+        }
+
+    .text-primary {
+        color: #0052cc !important;
+    }
+
+    .alert {
+        border-radius: 8px;
+        font-size: 0.9rem;
+    }
+
+    .back-link {
+        color: #0052cc;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+        .back-link:hover {
+            color: #003d99;
+            text-decoration: underline;
+        }
+</style>
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 login-card" style="width: 28rem;">
+        <div class="card-body">
+            <!-- Logo hoặc tiêu đề thương hiệu -->
+            <div class="text-center mb-4">
+                <img src="/images/logo.png" alt="RoomBooking Logo" style="height: 50px;" />
+                <p class="text-muted">Sign in to manage your bookings</p>
+            </div>
+
+            <!-- Thông báo từ TempData -->
+            @if (TempData["LoginMessage"] != null)
+            {
+                <div class="alert alert-info">
+                    @TempData["LoginMessage"]
+                </div>
+            }
+
+            <!-- Form đăng nhập -->
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label fw-medium">Email</label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label fw-medium">Password</label>
+                    <input type="password" asp-for="Password" class="form-control" placeholder="Enter your password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <input type="hidden" asp-for="ReturnUrl" />
+
+                <button type="submit" class="btn btn-primary w-100" id="loginButton">
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    <span class="button-text">Login</span>
+                </button>
+            </form>
+
+            <div class="text-center mt-3">
+                <a asp-page="/Index" class="back-link text-decoration-none">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    document.getElementById('loginButton').addEventListener('click', function () {
+        this.querySelector('.spinner-border').classList.remove('d-none');
+        this.querySelector('.button-text').textContent = 'Logging in...';
+    });
+</script>

@@ -1,22 +1,93 @@
-html {
-  font-size: 14px;
+/* Đảm bảo toàn bộ trang full màn hình */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Ẩn scroll bar */
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/* Container chính chiếm full màn hình trừ header và footer */
+.container {
+    flex: 1;
+    overflow: auto; /* Để nội dung có thể cuộn trong phần chính nếu cần */
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* Header và Footer cố định, không ảnh hưởng tới chiều cao chính */
 body {
-  margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Footer luôn ở cuối trang */
+.footer {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 10px; /* Đẩy xuống 10px */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 10px); /* Giữ nguyên chiều cao */
+    background-image: url('/images/background.jpg'); /* Đường dẫn ảnh */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.7; /* Làm mờ 30% */
+    z-index: -1;
+}
+
+/* Định dạng Logo */
+.logo {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    height: 50px; /* Điều chỉnh kích thước */
+}
+
+/* Container chứa background */
+.background-container {
+    position: relative;
+    background: url('/images/background.jpg') no-repeat center center;
+    background-size: cover; /* Hoặc sử dụng contain, 100% auto, v.v. */
+    background-position: center;
+    background-attachment: fixed; /* Giữ background cố định khi cuộn */
+    width: 100%;
+    height: 85vh; /* Chiếm toàn bộ chiều cao màn hình */
+    top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+    /* Hiệu ứng làm mờ background */
+    .background-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3); /* Mờ 30% */
+        z-index: -1;
+    }
+
+/* Trong site.css */
+.page-title {
+    font-size: 3.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #003087;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }

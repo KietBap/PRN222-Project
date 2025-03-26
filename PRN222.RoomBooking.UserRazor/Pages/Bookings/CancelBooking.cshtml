@@ -1,0 +1,72 @@
+﻿@page
+@model PRN222.RoomBooking.UserRazor.Pages.Bookings.CancelBookingModel
+
+@{
+    ViewData["Title"] = "Cancel Booking";
+}
+
+<style>
+    .container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .page-title {
+        font-size: 3.5rem;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: #003087;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+    }
+
+    .alert {
+        border-radius: 8px;
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        background: #0052cc;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: #003d99;
+            transform: translateY(-2px);
+        }
+</style>
+
+<div class="container mt-4">
+    <h2 class="page-title text-center">Cancel Booking</h2>
+
+    <!-- Thông báo lỗi -->
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger">
+            @Model.ErrorMessage
+        </div>
+    }
+
+    <!-- Thông báo thành công -->
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success">
+            @Model.SuccessMessage
+        </div>
+    }
+
+    <!-- Nút quay lại -->
+    <div class="mt-4 text-center">
+        <a asp-page="/Bookings/BookingHistory" class="btn btn-primary">
+            <i class="fas fa-arrow-left me-2"></i> Back to Booking History
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+}

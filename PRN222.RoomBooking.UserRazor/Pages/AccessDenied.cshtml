@@ -1,0 +1,15 @@
+﻿@page
+@model PRN222.RoomBooking.UserRazor.Pages.AccessDeniedModel
+@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger text-center mb-4">Access Denied</h2>
+    <div class="card shadow-sm">
+        <div class="card-body text-center">
+            <p>You do not have permission to access this page. Only users with the 'User' role can create bookings.</p>
+            <a asp-page="/Rooms/Index" class="btn btn-primary">Back to Room List</a>
+        </div>
+    </div>
+</div>
