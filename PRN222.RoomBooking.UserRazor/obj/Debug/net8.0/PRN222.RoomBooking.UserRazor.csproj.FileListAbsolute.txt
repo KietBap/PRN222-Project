@@ -35,8 +35,11 @@ E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Mi
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
@@ -77,6 +80,7 @@ E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\Sy
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\System.Drawing.Common.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\System.Memory.Data.dll
+E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\System.Runtime.Caching.dll
 E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll

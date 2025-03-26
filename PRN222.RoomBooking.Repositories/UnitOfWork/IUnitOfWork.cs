@@ -1,4 +1,5 @@
-﻿using PRN222.RoomBooking.Repositories.Data;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using PRN222.RoomBooking.Repositories.Data;
 
 namespace PRN222.RoomBooking.Repositories.UnitOfWork
 {
@@ -8,5 +9,8 @@ namespace PRN222.RoomBooking.Repositories.UnitOfWork
         IGenericRepository<User> UserRepository();
         IGenericRepository<Room> RoomRepository();
         IGenericRepository<Campus> CampusRepository();
+        IGenericRepository<Booking> BookingRepository();
+        IGenericRepository<RoomSlot> RoomSlotRepository();
+        Task<IDbContextTransaction> BeginTransactionAsync();
     }
 }

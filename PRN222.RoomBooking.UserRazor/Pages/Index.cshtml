@@ -1,10 +1,15 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Trang chủ";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Chào mừng đến với PRN222.RoomBooking</h1>
-    <p>Hệ thống đặt phòng của bạn.</p>
+<div class="background-container">
+    <h1 class="display-4 text-white fw-bold">Welcome to PRN222 Room Booking</h1>
+    <p class="lead text-light">Your trusted system for booking meeting rooms efficiently.</p>
+
+    <div class="mt-4">
+        <a asp-page="/Rooms/Index" class="btn btn-primary btn-lg">Room List</a>
+        <a asp-page="/Bookings/BookingHistory" class="btn btn-outline-light btn-lg">View Booking History</a>
+    </div>
 </div>

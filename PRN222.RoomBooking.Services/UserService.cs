@@ -14,7 +14,21 @@ namespace PRN222.RoomBooking.Services
 
         public async Task<User> Login(string email, string password)
         {
-            return await _unitOfWork.UserRepository().FindByConditionAsync(u => u.Email == email && u.Password == password);
+            return await _unitOfWork.UserRepository()
+                .FindByConditionAsync(
+                    u => u.Email == email && u.Password == password,
+                    u => u.Campus 
+                );
         }
+
+        public async Task<User> GetUserByCode(string userCode)
+        {
+            return await _unitOfWork.UserRepository()
+                .FindByConditionAsync(
+                    u => u.UserCode == userCode,
+                    u => u.Campus
+                );
+        }
+
     }
 }

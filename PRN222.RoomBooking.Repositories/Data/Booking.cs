@@ -1,4 +1,6 @@
-﻿namespace PRN222.RoomBooking.Repositories.Data;
+﻿using PRN222.RoomBooking.Repositories.Enums;
+
+namespace PRN222.RoomBooking.Repositories.Data;
 
 public partial class Booking
 {
@@ -8,7 +10,9 @@ public partial class Booking
 
     public string? Purpose { get; set; }
 
-    public string BookingStatus { get; set; } = null!;
+    public DateOnly BookingDate { get; set; }
+
+    public BookingStatus BookingStatus { get; set; }
 
     public DateTime? CreatedDate { get; set; }
 

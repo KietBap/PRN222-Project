@@ -1,41 +1,103 @@
 ﻿@page
 @model PRN222.RoomBooking.UserRazor.Pages.Rooms.DetailsModel
+@using PRN222.RoomBooking.Repositories.Enums
 
 @{
-    // Get the current date as DateOnly
     var currentDate = DateOnly.FromDateTime(DateTime.Today);
 }
 
-<div class="container mt-4">
-    <h2 class="text-primary text-center mb-4">Room Details</h2>
+<style>
+    .container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
 
-    <div class="card shadow-sm">
+    .text-primary {
+        color: #0052cc !important;
+    }
+
+    .info-card, .slots-card {
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-card .card-header {
+        background: #0052cc;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .slots-card .card-header {
+        background: #17a2b8;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #0052cc;
+            box-shadow: 0 0 5px rgba(0, 82, 204, 0.3);
+        }
+
+    .btn-primary {
+        background: #0052cc;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: #003d99;
+            transform: translateY(-2px);
+        }
+
+    .dl-horizontal dt {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .dl-horizontal dd {
+        color: #555;
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="page-title text-center">Room Details</h2>
+    <!-- Thông tin phòng -->
+    <div class="card info-card">
         <div class="card-header bg-primary text-white">
             <h4 class="mb-0">Room Information</h4>
         </div>
         <div class="card-body">
-            <dl class="row mb-0">
-                <dt class="col-sm-3 font-weight-bold">
+            <dl class="row mb-0 dl-horizontal">
+                <dt class="col-sm-3">
                     @Html.DisplayNameFor(model => model.Room.RoomName)
                 </dt>
                 <dd class="col-sm-9">
                     @Html.DisplayFor(model => model.Room.RoomName)
                 </dd>
-                <dt class="col-sm-3 font-weight-bold">
+                <dt class="col-sm-3">
                     @Html.DisplayNameFor(model => model.Room.Capacity)
                 </dt>
                 <dd class="col-sm-9">
                     @Html.DisplayFor(model => model.Room.Capacity)
                 </dd>
-                <dt class="col-sm-3 font-weight-bold">
+                <dt class="col-sm-3">
                     @Html.DisplayNameFor(model => model.Room.Status)
                 </dt>
                 <dd class="col-sm-9">
-                    <span class="badge @(Model.Room.Status == "Available" ? "bg-success" : "bg-warning")">
+                    <span class="badge @(Model.Room.Status == RoomStatus.Available ? "bg-success" : Model.Room.Status == RoomStatus.Booked ? "bg-warning" : "bg-danger")">
                         @Html.DisplayFor(model => model.Room.Status)
                     </span>
                 </dd>
-                <dt class="col-sm-3 font-weight-bold">
+                <dt class="col-sm-3">
                     @Html.DisplayNameFor(model => model.Room.Campus)
                 </dt>
                 <dd class="col-sm-9">
@@ -45,67 +107,33 @@
         </div>
     </div>
 
-    <!-- Room Slots Section -->
-    @if (Model.Room.RoomSlots != null && Model.Room.RoomSlots.Any(slot => slot.Date.HasValue && slot.Date.Value >= currentDate))
-    {
-        <div class="card shadow-sm mt-4">
-            <div class="card-header bg-info text-white">
-                <h4 class="mb-0">Available Room Slots (Today and Future)</h4>
-            </div>
-            <div class="card-body">
-                <table class="table table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Slot ID</th>
-                            <th>Date</th>
-                            <th>Start Time</th>
-                            <th>End Time</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var slot in Model.Room.RoomSlots
-                       .Where(slot => slot.Date.HasValue && slot.Date.Value >= currentDate)
-                       .OrderBy(slot => slot.Date)
-                       .ThenBy(slot => slot.StartTime))
-                        {
-                            <tr>
-                                <td>@slot.RoomSlotId</td>
-                                <td>@slot.Date.Value.ToString("dd/MM/yyyy")</td>
-                                <td>@(slot.StartTime.HasValue ? slot.StartTime.Value.ToString("HH:mm") : "N/A")</td>
-                                <td>@(slot.EndTime.HasValue ? slot.EndTime.Value.ToString("HH:mm") : "N/A")</td>
-                                <td>
-                                    <span class="badge @(slot.Status == "Available" ? "bg-success" : "bg-warning")">
-                                        @slot.Status
-                                    </span>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
+    <!-- Form chọn ngày đặt phòng -->
+    <div class="card slots-card mt-4">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Select Booking Date and Slots</h4>
         </div>
-    }
-    else
-    {
-        <div class="card shadow-sm mt-4">
-            <div class="card-header bg-warning text-white">
-                <h4 class="mb-0">No Available Room Slots for Today or Future</h4>
-            </div>
-            <div class="card-body">
-                <p class="text-muted">There are no room slots available for today (@currentDate.ToString("dd/MM/yyyy")) or future dates.</p>
-            </div>
+        <div class="card-body">
+            <form method="get" asp-page="/Bookings/CreateBooking">
+                <input type="hidden" name="roomId" value="@Model.Room.RoomId" />
+                <div class="mb-3">
+                    <label class="form-label fw-medium">Select Booking Date</label>
+                    <input type="date" name="bookingDate" class="form-control" min="@DateTime.Today.ToString("yyyy-MM-dd")" required />
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">View Available Slots</button>
+                </div>
+            </form>
         </div>
-    }
+    </div>
 
+    <!-- Nút quay lại -->
     <div class="mt-4 text-center">
         <a asp-page="./Index" class="btn btn-primary">
-            <i class="fas fa-arrow-left"></i> Back to List
+            <i class="fas fa-arrow-left me-2"></i> Back to List
         </a>
     </div>
 </div>
 
 @section Scripts {
-    <!-- Add Font Awesome for icons if not already included -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 }

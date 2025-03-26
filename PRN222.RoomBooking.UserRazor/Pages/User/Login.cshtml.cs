@@ -23,22 +23,24 @@ namespace PRN222.RoomBooking.UserRazor.Pages.User
         [BindProperty]
         public string Password { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string ReturnUrl { get; set; }
         public string ErrorMessage { get; set; } = string.Empty;
 
-        //kiểm tra người dùng đã login chưa
-        public async Task<IActionResult> OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(string returnUrl = null)
         {
             if (User.Identity != null && User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("/Rooms/Index");
+                return RedirectToPage("/Rooms/Index");
             }
+            ReturnUrl = returnUrl ?? "/Rooms/Index";
             return Page();
         }
 
-        //Login
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            //chặn login nếu ko nhập gì
+            ReturnUrl = returnUrl ?? "/Rooms/Index";
+
             if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
             {
                 ErrorMessage = "Email and password are required!";
@@ -46,10 +48,8 @@ namespace PRN222.RoomBooking.UserRazor.Pages.User
                 return Page();
             }
 
-            // gán account bằng Email Password
             var Account = await _userService.Login(Email, Password);
 
-            //chặn login nếu chỉ nhập 1 trong 2
             if (Account == null)
             {
                 ErrorMessage = "Invalid Email or Password! Please try again.";
@@ -57,12 +57,20 @@ namespace PRN222.RoomBooking.UserRazor.Pages.User
                 return Page();
             }
 
-            //Cookie
+            if (Account.Role != "User")
+            {
+                ErrorMessage = "Only users with the 'User' role are allowed to log in.";
+                ModelState.AddModelError(string.Empty, ErrorMessage);
+                return Page();
+            }
+
+            // Store both FullName and UserCode in claims
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, Account.FullName.ToString()),
+                new Claim(ClaimTypes.Name, Account.FullName.ToString()), 
+                new Claim(ClaimTypes.NameIdentifier, Account.UserCode.ToString()),
                 new Claim(ClaimTypes.Role, Account.Role.ToString()),
-                new Claim(ClaimTypes.GivenName, Account.CampusId.ToString())
+                new Claim(ClaimTypes.GivenName, Account.Campus?.CampusName ?? "Unknown")
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -77,9 +85,7 @@ namespace PRN222.RoomBooking.UserRazor.Pages.User
                 authenProperties
             );
 
-            //Chuyển hướng trang khi đăng nhập thành công
-            return RedirectToPage("/Rooms/Index");
-
+            return LocalRedirect(ReturnUrl);
         }
     }
 }

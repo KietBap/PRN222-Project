@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using PRN222.RoomBooking.Repositories.Data;
+using PRN222.RoomBooking.Repositories.Enums;
 
 namespace PRN222.RoomBooking.Repositories;
 
@@ -49,12 +50,18 @@ public partial class FpturoomBookingDbContext : DbContext
         {
             entity.HasKey(e => e.BookingId).HasName("PK__Bookings__73951AED6034E9F4");
 
-            entity.Property(e => e.BookingStatus).HasMaxLength(50);
+            entity.Property(e => e.BookingStatus)
+                .HasMaxLength(50)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (BookingStatus)Enum.Parse(typeof(BookingStatus), v)
+                );
             entity.Property(e => e.CreatedDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.Purpose).HasMaxLength(500);
             entity.Property(e => e.UserCode).HasMaxLength(50);
+            entity.Property(e => e.BookingDate);
 
             entity.HasOne(d => d.UserCodeNavigation).WithMany(p => p.Bookings)
                 .HasForeignKey(d => d.UserCode)
@@ -99,7 +106,12 @@ public partial class FpturoomBookingDbContext : DbContext
             entity.HasKey(e => e.RoomId).HasName("PK__Rooms__32863939D1100A9D");
 
             entity.Property(e => e.RoomName).HasMaxLength(255);
-            entity.Property(e => e.Status).HasMaxLength(50);
+            entity.Property(e => e.Status)
+            .HasMaxLength(50)
+            .HasConversion(
+                        v => v.ToString(), 
+                        v => (RoomStatus)Enum.Parse(typeof(RoomStatus), v)
+                    );
 
             entity.HasOne(d => d.Campus).WithMany(p => p.Rooms)
                 .HasForeignKey(d => d.CampusId)
@@ -111,8 +123,12 @@ public partial class FpturoomBookingDbContext : DbContext
         {
             entity.HasKey(e => e.RoomSlotId).HasName("PK__RoomSlot__E5DD22263D191E73");
 
-            entity.Property(e => e.Status).HasMaxLength(50);
-
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasConversion(
+                        v => v.ToString(), 
+                        v => (RoomSlotStatus)Enum.Parse(typeof(RoomSlotStatus), v) 
+                    );
             entity.HasOne(d => d.Room).WithMany(p => p.RoomSlots)
                 .HasForeignKey(d => d.RoomId)
                 .OnDelete(DeleteBehavior.ClientSetNull)

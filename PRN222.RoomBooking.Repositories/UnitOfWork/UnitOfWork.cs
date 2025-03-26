@@ -1,4 +1,5 @@
-﻿using PRN222.RoomBooking.Repositories.Data;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using PRN222.RoomBooking.Repositories.Data;
 
 namespace PRN222.RoomBooking.Repositories.UnitOfWork
 {
@@ -31,6 +32,20 @@ namespace PRN222.RoomBooking.Repositories.UnitOfWork
         public IGenericRepository<Campus> CampusRepository()
         {
             return GetRepository<Campus>();
+        }
+        public IGenericRepository<Booking> BookingRepository() 
+        {
+            return GetRepository<Booking>();
+        }
+
+        public IGenericRepository<RoomSlot> RoomSlotRepository() 
+        {
+            return GetRepository<RoomSlot>();
+        }
+
+        public async Task<IDbContextTransaction> BeginTransactionAsync()
+        {
+            return await _dbContext.Database.BeginTransactionAsync();
         }
     }
 }

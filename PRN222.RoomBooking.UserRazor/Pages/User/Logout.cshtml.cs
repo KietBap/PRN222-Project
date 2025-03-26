@@ -7,18 +7,9 @@ namespace PRN222.RoomBooking.UserRazor.Pages.User
 {
     public class LogoutModel : PageModel
     {
-        public async Task<IActionResult> OnGet()
+        public async Task<IActionResult> OnPostAsync()
         {
-            // Đăng xuất người dùng
-            await HttpContext.SignOutAsync();
-
-            // Xóa toàn bộ cookie của ứng dụng
-            foreach (var cookie in Request.Cookies.Keys)
-            {
-                Response.Cookies.Delete(cookie);
-            }
-
-            // Điều hướng về trang Login
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToPage("/User/Login");
         }
     }

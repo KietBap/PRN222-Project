@@ -15,6 +15,8 @@ namespace PRN222.RoomBooking.UserRazor
             // Add services to the container.
             builder.Services.AddRazorPages();
 
+            builder.Services.AddSignalR();
+
             builder.Services.AddDbContext<FpturoomBookingDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionStringDB")));
 
