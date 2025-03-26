@@ -1,0 +1,232 @@
+﻿@model IEnumerable<PRN222.RoomBooking.Repositories.Data.Booking>
+@using PRN222.RoomBooking.Repositories.Enums
+
+@{
+    ViewData["Title"] = "Manage Pending Bookings";
+}
+
+<style>
+    .container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .page-title {
+        font-size: 3.5rem;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: #003087;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+    }
+
+    .alert {
+        border-radius: 8px;
+        font-size: 0.9rem;
+    }
+
+    .table-card {
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .table thead {
+        background: #0052cc;
+        color: #fff;
+    }
+
+    .table tbody tr {
+        transition: background 0.3s ease;
+    }
+
+        .table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+    .btn-success {
+        background: #28a745;
+        border: none;
+        border-radius: 8px;
+        padding: 5px 15px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+    .btn-danger {
+        background: #dc3545;
+        border: none;
+        border-radius: 8px;
+        padding: 5px 15px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-danger:hover {
+            background: #b02a37;
+            transform: translateY(-2px);
+        }
+
+    .pagination .btn {
+        border-radius: 8px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .pagination .btn-outline-secondary {
+        border-color: #6c757d;
+        color: #6c757d;
+    }
+
+        .pagination .btn-outline-secondary:hover {
+            background: #6c757d;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .pagination .btn-outline-secondary.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+    .pagination span {
+        font-weight: 500;
+        color: #0052cc;
+    }
+
+    .btn-primary {
+        background: #0052cc;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: #003d99;
+            transform: translateY(-2px);
+        }
+</style>
+
+<div class="container mt-4">
+    <h2 class="page-title text-center">Manage Pending Bookings</h2>
+
+    <!-- Thông báo lỗi -->
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <!-- Thông báo thành công -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <!-- Bảng danh sách đặt phòng -->
+    <div class="card table-card">
+        <div class="card-body p-0">
+            @if (Model != null && Model.Any())
+            {
+                <table class="table table-striped table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>User Code</th>
+                            <th>Booking Date</th>
+                            <th>Created Date</th>
+                            <th>Purpose</th>
+                            <th>Status</th>
+                            <th>Room Details</th>
+                            <th>Room Slots</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var booking in Model)
+                        {
+                            <tr>
+                                <td>@booking.BookingId</td>
+                                <td>@booking.UserCode</td>
+                                <td>@booking.BookingDate.ToString("dd/MM/yyyy")</td>
+                                <td>@booking.CreatedDate?.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>@booking.Purpose</td>
+                                <td>
+                                    <span class="badge @(booking.BookingStatus == BookingStatus.Pending ? "bg-info" : booking.BookingStatus == BookingStatus.Booked ? "bg-warning" : "bg-danger")">
+                                        @booking.BookingStatus
+                                    </span>
+                                </td>
+                                <td>
+                                    @foreach (var roomSlot in booking.RoomSlots)
+                                    {
+                                        <div>
+                                            <strong>Room Name:</strong> @roomSlot.Room.RoomName <br />
+                                            <strong>Campus:</strong> @roomSlot.Room.Campus?.CampusName <br />
+                                            <strong>Capacity:</strong> @roomSlot.Room.Capacity <br />
+                                            <strong>Status:</strong>
+                                            <span class="badge @(roomSlot.Room.Status == RoomStatus.Available ? "bg-success" : roomSlot.Room.Status == RoomStatus.Booked ? "bg-warning" : "bg-danger")">
+                                                @roomSlot.Room.Status
+                                            </span>
+                                        </div>
+                                        break;
+                                    }
+                                </td>
+                                <td>
+                                    @foreach (var roomSlot in booking.RoomSlots)
+                                    {
+                                        <div>
+                                            Slot @roomSlot.SlotNumber
+                                            (@roomSlot.StartTime?.ToString("HH:mm") - @roomSlot.EndTime?.ToString("HH:mm"))
+                                        </div>
+                                    }
+                                </td>
+                                <td>
+                                    <form asp-action="ApproveBooking" method="post" style="display:inline;">
+                                        <input type="hidden" name="bookingId" value="@booking.BookingId" />
+                                        <button type="submit" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want to approve this booking?')">Approve</button>
+                                    </form>
+                                    <form asp-action="CancelBooking" method="post" style="display:inline;">
+                                        <input type="hidden" name="bookingId" value="@booking.BookingId" />
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to cancel this booking?')">Cancel</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p class="text-muted text-center">No pending bookings found for your campus.</p>
+            }
+        </div>
+    </div>
+
+    <!-- Phân trang -->
+    <div class="d-flex justify-content-center align-items-center mt-4 pagination">
+        <a asp-action="ManagePending"
+           asp-route-pageNumber="@(ViewBag.PageNumber > 1 ? ViewBag.PageNumber - 1 : 1)"
+           class="btn btn-outline-secondary @(ViewBag.PageNumber == 1 ? "disabled" : "")">Previous</a>
+
+        <span class="mx-3">Page @ViewBag.PageNumber of @ViewBag.TotalPages</span>
+
+        <a asp-action="ManagePending"
+           asp-route-pageNumber="@(ViewBag.PageNumber < ViewBag.TotalPages ? ViewBag.PageNumber + 1 : ViewBag.TotalPages)"
+           class="btn btn-outline-secondary @(ViewBag.PageNumber == ViewBag.TotalPages ? "disabled" : "")">Next</a>
+    </div>
+
+    <!-- Nút điều hướng -->
+    <div class="mt-4 text-center">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back to Home</a>
+    </div>
+</div>
