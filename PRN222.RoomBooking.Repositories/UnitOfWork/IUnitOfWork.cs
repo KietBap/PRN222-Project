@@ -11,6 +11,7 @@ namespace PRN222.RoomBooking.Repositories.UnitOfWork
         IGenericRepository<Campus> CampusRepository();
         IGenericRepository<Booking> BookingRepository();
         IGenericRepository<RoomSlot> RoomSlotRepository();
+        IGenericRepository<Department> DepartmentRepository();
         Task<IDbContextTransaction> BeginTransactionAsync();
     }
 }

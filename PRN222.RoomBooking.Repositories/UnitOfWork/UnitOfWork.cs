@@ -43,6 +43,11 @@ namespace PRN222.RoomBooking.Repositories.UnitOfWork
             return GetRepository<RoomSlot>();
         }
 
+        public IGenericRepository<Department> DepartmentRepository()
+        {
+            return GetRepository<Department>();
+        }
+
         public async Task<IDbContextTransaction> BeginTransactionAsync()
         {
             return await _dbContext.Database.BeginTransactionAsync();

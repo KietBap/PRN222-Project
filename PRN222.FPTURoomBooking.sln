@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PRN222.RoomBooking.UserRazo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PRN222.RoomBooking.ManagerMVC", "PRN222.RoomBooking.ManagerMVC\PRN222.RoomBooking.ManagerMVC.csproj", "{D5F300CF-71D4-4461-AED3-56FF3402A7E1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PRN222.RoomBooking.AdminBlazor", "PRN222.RoomBooking.AdminBlazor\PRN222.RoomBooking.AdminBlazor.csproj", "{C19C91EC-AE8A-43C4-A077-BCB6AE042D87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D5F300CF-71D4-4461-AED3-56FF3402A7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5F300CF-71D4-4461-AED3-56FF3402A7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5F300CF-71D4-4461-AED3-56FF3402A7E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C19C91EC-AE8A-43C4-A077-BCB6AE042D87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C19C91EC-AE8A-43C4-A077-BCB6AE042D87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C19C91EC-AE8A-43C4-A077-BCB6AE042D87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C19C91EC-AE8A-43C4-A077-BCB6AE042D87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

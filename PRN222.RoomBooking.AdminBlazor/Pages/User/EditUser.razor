@@ -1,0 +1,149 @@
+﻿@page "/edit-user/{UserCode}"
+
+@layout MainLayout
+@attribute [Authorize(Roles = "Admin")]
+@inject IUserService UserService
+@inject IDepartmentService DepartmentService
+@inject ICampusService CampusService
+@inject NavigationManager Navigation
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Edit User</h2>
+
+    @if (user != null)
+    {
+        <EditForm Model="@user" OnValidSubmit="HandleUpdateUser" class="card p-4">
+            <DataAnnotationsValidator />
+
+            <div class="mb-3">
+                <label class="form-label">Code</label>
+                <InputText class="form-control" @bind-Value="user.UserCode" disabled />
+                <ValidationMessage For="@(() => user.UserCode)" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <InputText class="form-control" @bind-Value="user.FullName" />
+                <ValidationMessage For="@(() => user.FullName)" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <InputText class="form-control" @bind-Value="user.Email" />
+                <ValidationMessage For="@(() => user.Email)" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <InputText class="form-control" type="text" @bind-Value="user.Password" />
+                <ValidationMessage For="@(() => user.Password)" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Campus</label>
+                <InputSelect class="form-select" @bind-Value="user.CampusId">
+                    @foreach (var campus in campuses)
+                    {
+                        <option value="@campus.CampusId">@campus.CampusName</option>
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => user.CampusId)" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Department</label>
+                <InputSelect class="form-select" @bind-Value="user.DepartmentId">
+                    @foreach (var department in departments)
+                    {
+                        <option value="@department.DepartmentId">@department.DepartmentName</option>
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => user.DepartmentId)" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Role</label>
+                <InputSelect class="form-select" @bind-Value="user.Role">
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                    <option value="Manager">Manager</option>
+                </InputSelect>
+                <ValidationMessage For="@(() => user.Role)" />
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+            </div>
+
+            @if (!string.IsNullOrEmpty(message))
+            {
+                <div class="alert alert-danger mt-3">
+                    @message
+                </div>
+            }
+        </EditForm>
+    }
+    else
+    {
+        <p class="text-center text-danger">Không tìm thấy người dùng!</p>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string UserCode { get; set; } = "";
+
+    private User? user;
+    private List<Campus> campuses = new();
+    private List<Department> departments = new();
+    private string message = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadUser();
+        await LoadInitialData();
+        StateHasChanged();
+    }
+
+    private async Task LoadInitialData()
+    {
+        campuses = await CampusService.GetCampus() ?? new List<Campus>();
+        departments = await DepartmentService.GetDepartment() ?? new List<Department>();
+    }
+
+    private async Task LoadUser()
+    {
+        user = await UserService.GetUserByCode(UserCode);
+    }
+
+    private async Task HandleUpdateUser()
+    {
+        if (user == null) return;
+        try
+        {
+            var success = await UserService.UpdateUser(user);
+            if (success)
+            {
+                Navigation.NavigateTo("/user-manager");
+            }
+            else
+            {
+                message = "Users are not updated!";
+            }
+        }
+        catch (Exception ex)
+        {
+            message = $"Error updating user: {ex.Message}";
+        }
+        finally
+        {
+            StateHasChanged();
+        }
+    }
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/user-manager");
+    }
+}

@@ -1,0 +1,236 @@
+﻿@page "/user-manager"
+@layout MainLayout
+@attribute [Authorize(Roles = "Admin")]
+@inject IUserService UserService
+@inject IDepartmentService DepartmentService
+@inject ICampusService CampusService
+@inject NavigationManager Navigation
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">User Manager</h2>
+
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <input type="text" class="form-control" placeholder="Search by name or email..." value="@searchTerm" @oninput="SearchUsers" />
+        </div>
+        <div class="col-md-2">
+            <select class="form-select" value="@selectedCampus" @onchange="e => ApplyFilters(e, nameof(selectedCampus))">
+                <option value="">All Campus</option>
+                @foreach (var campus in campuses)
+                {
+                    <option value="@campus.CampusId">@campus.CampusName</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <select class="form-select" value="@selectedDepartment" @onchange="e => ApplyFilters(e, nameof(selectedDepartment))">
+                <option value="">All Department</option>
+                @foreach (var department in departments)
+                {
+                    <option value="@department.DepartmentId">@department.DepartmentName</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <select class="form-select" value="@selectedRole" @onchange="e => ApplyFilters(e, nameof(selectedRole))">
+                <option value="">All Role</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+                <option value="Manager">Manager</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-success" @onclick="NavigateToCreate">Create User</button>
+        </div>
+    </div>
+
+    @if (isLoading)
+    {
+        <p class="text-center">Loading data...</p>
+    }
+    else if (users?.Any() == true)
+    {
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th class="sortable" @onclick='() => SortBy("UserCode")'>
+                        Code @(sortColumn == "UserCode" ? (sortAscending ? "↑" : "↓") : "")
+                    </th>
+                    <th class="sortable" @onclick='() => SortBy("FullName")'>
+                        Full Name @(sortColumn == "FullName" ? (sortAscending ? "↑" : "↓") : "")
+                    </th>
+                    <th>Email</th>
+                    <th>Campus</th>
+                    <th>Department</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in users)
+                {
+                    <tr>
+                        <td>@user.UserCode</td>
+                        <td>@user.FullName</td>
+                        <td>@user.Email</td>
+                        <td>@user.Campus?.CampusName</td>
+                        <td>@user.Department?.DepartmentName </td>
+                        <td><button class="btn btn-warning btn-sm" @onclick="() => NavigateToEdit(user.UserCode)">Edit</button>
+                            <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#modalId" @onclick="() => ShowDeleteModal(user)">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-between mt-3">
+            <button class="btn btn-primary" @onclick="PreviousPage" disabled="@(currentPage == 1)">Previous</button>
+            <span>Page @currentPage / @totalPages</span>
+            <button class="btn btn-primary" @onclick="NextPage" disabled="@(currentPage == totalPages)">Next</button>
+        </div>
+    }
+    else
+    {
+        <p class="text-center">No user data to display.</p>
+    }
+    <DeleteUserModal User="@userToDelete" OnConfirmDelete="ConfirmDelete" />
+</div>
+
+@code {
+    private List<User> users = new();
+    private string searchTerm = "";
+    private string selectedCampus = "";
+    private string selectedDepartment = "";
+    private string selectedRole = "";
+    private int currentPage = 1;
+    private int pageSize = 5;
+    private int totalPages = 1;
+    private List<Campus> campuses = new();
+    private List<Department> departments = new();
+    private bool isLoading = false;
+    private string sortColumn = "UserCode";
+    private bool sortAscending = true;
+    private User userToDelete = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadInitialData();
+        await LoadUsers();
+    }
+
+    private async Task LoadInitialData()
+    {
+        isLoading = true;
+        try
+        {
+            campuses = await CampusService.GetCampus();
+            departments = await DepartmentService.GetDepartment();
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadUsers()
+    {
+        isLoading = true;
+        try
+        {
+            int? campusId = string.IsNullOrEmpty(selectedCampus) ? null : int.Parse(selectedCampus);
+            int? departmentId = string.IsNullOrEmpty(selectedDepartment) ? null : int.Parse(selectedDepartment);
+
+            var result = await UserService.GetUsers(campusId, departmentId, selectedRole, searchTerm, currentPage, pageSize, sortColumn, sortAscending);
+            users = result.Users ?? new List<User>();
+            totalPages = (int)Math.Ceiling((double)result.TotalCount / pageSize);
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task SearchUsers(ChangeEventArgs e)
+    {
+        searchTerm = e.Value?.ToString();
+        currentPage = 1;
+        await LoadUsers();
+    }
+
+    private async Task ApplyFilters(ChangeEventArgs e, string filterType)
+    {
+        if (e.Value != null)
+        {
+            switch (filterType)
+            {
+                case nameof(selectedCampus):
+                    selectedCampus = e.Value.ToString();
+                    break;
+                case nameof(selectedDepartment):
+                    selectedDepartment = e.Value.ToString();
+                    break;
+                case nameof(selectedRole):
+                    selectedRole = e.Value.ToString();
+                    break;
+            }
+        }
+        currentPage = 1;
+        await LoadUsers();
+    }
+
+    private async Task SortBy(string column)
+    {
+        if (sortColumn == column)
+        {
+            sortAscending = !sortAscending;
+        }
+        else
+        {
+            sortColumn = column;
+            sortAscending = true;
+        }
+        await LoadUsers();
+    }
+
+    private async Task NextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+            await LoadUsers();
+        }
+    }
+
+    private async Task PreviousPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+            await LoadUsers();
+        }
+    }
+
+    private async Task NavigateToCreate()
+    {
+        Navigation.NavigateTo("/create-user");
+    }
+
+    private async Task NavigateToEdit(string userCode)
+    {
+        Navigation.NavigateTo($"/edit-user/{userCode}");
+    }
+
+    private async Task ShowDeleteModal(User user)
+    {
+        userToDelete = user;
+    }
+
+    private async Task ConfirmDelete()
+    {
+        await LoadUsers();
+    }
+}
