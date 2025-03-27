@@ -69,11 +69,11 @@ CREATE TABLE BookingRoomSlots (
 
 -- Chèn dữ liệu vào bảng Departments (Phòng ban)
 INSERT INTO Departments (DepartmentName) VALUES
-('Công nghệ thông tin'),
-('Kinh doanh'),
-('Thiết kế đồ họa'),
-('Ngôn ngữ Anh'),
-('Quản trị khách sạn');
+(N'Công nghệ thông tin'),
+(N'Kinh doanh'),
+(N'Thiết kế đồ họa'),
+(N'Ngôn ngữ Anh'),
+(N'Quản trị khách sạn');
 
 -- Chèn dữ liệu vào bảng Campus (Cơ sở)
 INSERT INTO Campus (CampusName, Location) VALUES

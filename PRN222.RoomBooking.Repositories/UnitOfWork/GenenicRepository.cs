@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PRN222.RoomBooking.Repositories.Data;
 using System.Linq.Expressions;
 
 namespace PRN222.RoomBooking.Repositories.UnitOfWork
@@ -114,6 +115,14 @@ namespace PRN222.RoomBooking.Repositories.UnitOfWork
             }
 
             return await query.Where(predicate).ToListAsync();
+        }
+
+        public async Task<T?> ExecuteQuerySingleAsync(string query, params object[] parameters)
+        {
+            return await _context.Set<T>()
+                .FromSqlRaw(query, parameters)
+                .AsNoTracking() 
+                .FirstOrDefaultAsync();
         }
 
     }

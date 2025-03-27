@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using PRN222.RoomBooking.Repositories;
+using PRN222.RoomBooking.Repositories.Data;
 using PRN222.RoomBooking.Repositories.UnitOfWork;
 
 namespace PRN222.RoomBooking.ManagerMVC

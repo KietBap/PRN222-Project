@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using PRN222.RoomBooking.Repositories.Data;
 using PRN222.RoomBooking.Repositories.Enums;
 
-namespace PRN222.RoomBooking.Repositories;
+namespace PRN222.RoomBooking.Repositories.Data;
 
 public partial class FpturoomBookingDbContext : DbContext
 {
@@ -109,7 +108,7 @@ public partial class FpturoomBookingDbContext : DbContext
             entity.Property(e => e.Status)
             .HasMaxLength(50)
             .HasConversion(
-                        v => v.ToString(), 
+                        v => v.ToString(),
                         v => (RoomStatus)Enum.Parse(typeof(RoomStatus), v)
                     );
 
@@ -126,8 +125,8 @@ public partial class FpturoomBookingDbContext : DbContext
             entity.Property(e => e.Status)
                 .HasMaxLength(50)
                 .HasConversion(
-                        v => v.ToString(), 
-                        v => (RoomSlotStatus)Enum.Parse(typeof(RoomSlotStatus), v) 
+                        v => v.ToString(),
+                        v => (RoomSlotStatus)Enum.Parse(typeof(RoomSlotStatus), v)
                     );
             entity.HasOne(d => d.Room).WithMany(p => p.RoomSlots)
                 .HasForeignKey(d => d.RoomId)

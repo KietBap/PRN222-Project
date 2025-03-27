@@ -741,10 +741,7 @@
           "Microsoft.Extensions.Configuration.Json": "8.0.0"
         },
         "runtime": {
-          "PRN222.RoomBooking.Repositories.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "PRN222.RoomBooking.Repositories.dll": {}
         }
       }
     }

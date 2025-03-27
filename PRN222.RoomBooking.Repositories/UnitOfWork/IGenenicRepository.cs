@@ -18,6 +18,7 @@ namespace PRN222.RoomBooking.Repositories.UnitOfWork
             params Expression<Func<T, object>>[] includes);
         Task<int> CountAsync(IEnumerable<Expression<Func<T, bool>>> filter = null);
         Task<List<T>> GetAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes);
+        Task<T?> ExecuteQuerySingleAsync(string query, params object[] parameters);
 
     }
 }
