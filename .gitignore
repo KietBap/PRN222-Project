@@ -1,0 +1,13 @@
+PRN222.RoomBooking.AdminBlazor/bin/
+PRN222.RoomBooking.AdminBlazor/obj/
+PRN222.RoomBooking.ManagerMVC/bin/
+PRN222.RoomBooking.ManagerMVC/obj/
+PRN222.RoomBooking.Repositories/bin/
+PRN222.RoomBooking.Repositories/obj/
+PRN222.RoomBooking.Services/bin/
+PRN222.RoomBooking.Services/obj/
+PRN222.RoomBooking.UserRazor/bin/
+PRN222.RoomBooking.UserRazor/obj/
+
+.vs/
+.git/
