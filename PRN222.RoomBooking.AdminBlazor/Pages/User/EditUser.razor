@@ -1,11 +1,13 @@
 ﻿@page "/edit-user/{UserCode}"
 
+
 @layout MainLayout
 @attribute [Authorize(Roles = "Admin")]
 @inject IUserService UserService
 @inject IDepartmentService DepartmentService
 @inject ICampusService CampusService
 @inject NavigationManager Navigation
+@inject IHubContext<NotificationHub> HubContext
 
 <div class="container mt-4">
     <h2 class="mb-4 text-center">Edit User</h2>
@@ -125,6 +127,7 @@
             var success = await UserService.UpdateUser(user);
             if (success)
             {
+                await HubContext.Clients.All.SendAsync("ReloadPage");
                 Navigation.NavigateTo("/user-manager");
             }
             else

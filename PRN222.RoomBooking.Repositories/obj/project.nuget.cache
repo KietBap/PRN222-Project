@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oAuR4zi6i/qnVb5zMUocXCKRZt7cGVNsN2g4fM1mK1bYMfo8RVcOCsYKjMHbpdrOGkGlNRwame+g0oWvtWFzDw==",
+  "dgSpecHash": "rOLL1idtWIHx3mF0iCHJSUKadr5FBmr17EoRYQp2A9ne0W6q++bGyTEoofpIJZmMawUJP0FkUDobQm3xrmizCA==",
   "success": true,
-  "projectFilePath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj",
+  "projectFilePath": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

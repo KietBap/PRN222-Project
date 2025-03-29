@@ -1,5 +1,6 @@
 ﻿@inject IUserService UserService
 @inject IJSRuntime JSRuntime
+@inject IHubContext<NotificationHub> HubContext
 
 <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
@@ -37,6 +38,7 @@
         if (User != null)
         {
             await UserService.DeleteUser(User.UserCode); 
+            await HubContext.Clients.All.SendAsync("ReloadPage");
             await OnConfirmDelete.InvokeAsync();
             await JSRuntime.InvokeVoidAsync("closeModal", "modalId");
         }

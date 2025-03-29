@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.EntityFrameworkCore;
 using PRN222.RoomBooking.AdminBlazor.Auth;
 using PRN222.RoomBooking.AdminBlazor.Data;
+using PRN222.RoomBooking.AdminBlazor.Hubs;
 using PRN222.RoomBooking.Repositories.Data;
 using PRN222.RoomBooking.Repositories.UnitOfWork;
 using PRN222.RoomBooking.Services;
@@ -22,6 +23,7 @@ builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 
 
 // Add AuthenticationStateProvider
+builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
 builder.Services.AddScoped<CustomAuthenticationStateProvider>();
 
@@ -30,6 +32,7 @@ builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<ProtectedLocalStorage>();
 
 // Add Blazor services
+builder.Services.AddSignalR();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
@@ -46,6 +49,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
+app.MapHub<NotificationHub>("/Hub");
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");

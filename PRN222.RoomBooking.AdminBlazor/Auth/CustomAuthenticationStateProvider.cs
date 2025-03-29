@@ -60,7 +60,7 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
             ExpiryTime = DateTime.UtcNow.AddDays(1)
         };
 
-        await _protectedLocalStorage.SetAsync("userSession", session);
+        await _protectedLocalStorage.SetAsync("userInfo", session);
         NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
     }
 }

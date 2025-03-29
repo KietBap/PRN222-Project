@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PRN222.RoomBooking.UserRazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5249c4c01c5e493fe1a2cf401bc610775ed3a0ac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62e07582a397bd3bdc5096ca8fa0e3dab4326229")]
 [assembly: System.Reflection.AssemblyProductAttribute("PRN222.RoomBooking.UserRazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PRN222.RoomBooking.UserRazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

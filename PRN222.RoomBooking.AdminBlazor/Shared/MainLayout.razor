@@ -1,5 +1,6 @@
 ﻿@inherits LayoutComponentBase
-@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inject ILocalStorageService LocalStorage
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 <PageTitle>AdminBlazor</PageTitle>
 
@@ -8,8 +9,37 @@
         <NavMenu />
     </div>
     <main>
+        <div class="top-row px-4">
+            <span>Welcome, @userName</span>
+            <a href="#" @onclick="Logout">Logout</a>
+        </div>
         <article class="content px-4">
             @Body
         </article>
     </main>
 </div>
+
+@code {
+    private string userName = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            userName = user.FindFirst(ClaimTypes.Name)?.Value ?? "";
+        }
+    }
+
+    private async Task Logout()
+    {
+        await LocalStorage.RemoveItemAsync("userInfo");
+        if (AuthenticationStateProvider is CustomAuthenticationStateProvider customProvider)
+        {
+            await customProvider.SignInAsync(new ClaimsPrincipal(new ClaimsIdentity())); 
+        }
+        userName = "";
+    }
+}

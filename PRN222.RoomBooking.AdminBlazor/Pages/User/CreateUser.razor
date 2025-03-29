@@ -5,6 +5,7 @@
 @inject IDepartmentService DepartmentService
 @inject ICampusService CampusService
 @inject NavigationManager Navigation
+@inject IHubContext<NotificationHub> HubContext
 
 <div class="container mt-4">
     <h2 class="mb-4 text-center">Create User</h2>
@@ -33,6 +34,7 @@
         <div class="mb-3">
             <label class="form-label">Campus</label>
             <InputSelect class="form-select" @bind-Value="newUser.CampusId">
+                <option value="">Choose Campus</option>
                 @foreach (var campus in campuses)
                 {
                     <option value="@campus.CampusId">@campus.CampusName</option>
@@ -44,6 +46,7 @@
         <div class="mb-3">
             <label class="form-label">Department</label>
             <InputSelect class="form-select" @bind-Value="newUser.DepartmentId">
+                <option value="">Choose Department</option>
                 @foreach (var department in departments)
                 {
                     <option value="@department.DepartmentId">@department.DepartmentName</option>
@@ -55,6 +58,7 @@
         <div class="mb-3">
             <label class="form-label">Role</label>
             <InputSelect class="form-select" @bind-Value="newUser.Role">
+                <option value="">Choose Role</option>
                 <option value="Admin">Admin</option>
                 <option value="User">User</option>
                 <option value="Manager">Manager</option>
@@ -100,6 +104,7 @@
             var success = await UserService.CreateUser(newUser);
             if (success)
             {
+                await HubContext.Clients.All.SendAsync("ReloadPage");
                 Navigation.NavigateTo("/user-manager");
             }
             else
