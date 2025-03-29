@@ -11,7 +11,7 @@
 
     <div class="row mb-3">
         <div class="col-md-3">
-            <input type="text" class="form-control" placeholder="Search by name or email..." value="@searchTerm" @oninput="SearchUsers" />
+            <input type="text" class="form-control" placeholder="Search by name or email..." value="@searchTerm" @onchange="SearchUsers" />
         </div>
         <div class="col-md-2">
             <select class="form-select" value="@selectedCampus" @onchange="e => ApplyFilters(e, nameof(selectedCampus))">
@@ -157,6 +157,7 @@
     private async Task SearchUsers(ChangeEventArgs e)
     {
         searchTerm = e.Value?.ToString();
+        if (string.IsNullOrEmpty(searchTerm)) searchTerm = "";
         currentPage = 1;
         await LoadUsers();
     }

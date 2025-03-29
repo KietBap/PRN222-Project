@@ -39,8 +39,9 @@ namespace PRN222.RoomBooking.Services
 
             if (!string.IsNullOrEmpty(search))
             {
-                filters.Add(u => (u.FullName != null && u.FullName.Contains(search, StringComparison.OrdinalIgnoreCase)) ||
-                               (u.Email != null && u.Email.Contains(search, StringComparison.OrdinalIgnoreCase)));
+                search = search.Trim().ToLowerInvariant();
+                filters.Add(u => (u.FullName != null && u.FullName.ToLower().Contains(search)) ||
+                             (u.Email != null && u.Email.ToLower().Contains(search)));
             }
             if (campusId.HasValue)
             {
