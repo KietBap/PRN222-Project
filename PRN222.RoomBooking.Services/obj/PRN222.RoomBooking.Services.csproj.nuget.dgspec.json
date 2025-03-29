@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj": {}
+    "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj": {}
   },
   "projects": {
-    "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj": {
+    "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj",
+        "projectUniqueName": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj",
         "projectName": "PRN222.RoomBooking.Repositories",
-        "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj",
+        "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\obj\\",
+        "outputPath": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -95,14 +95,14 @@
         }
       }
     },
-    "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj": {
+    "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj",
+        "projectUniqueName": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj",
         "projectName": "PRN222.RoomBooking.Services",
-        "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj",
+        "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\obj\\",
+        "outputPath": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -120,8 +120,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj": {
-                "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj"
+              "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj": {
+                "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj"
               }
             }
           }

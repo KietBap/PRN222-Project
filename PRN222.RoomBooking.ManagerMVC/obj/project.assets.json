@@ -3573,11 +3573,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj",
+      "projectUniqueName": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj",
       "projectName": "PRN222.RoomBooking.ManagerMVC",
-      "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj",
+      "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\obj\\",
+      "outputPath": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3595,8 +3595,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj": {
-              "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj"
+            "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj": {
+              "projectPath": "D:\\FPT\\SE7\\PRN222\\Final\\1\\PRN222-Project\\PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj"
             }
           }
         }

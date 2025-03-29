@@ -5,6 +5,7 @@
 @inject IDepartmentService DepartmentService
 @inject ICampusService CampusService
 @inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
 
 <div class="container mt-4">
     <h2 class="mb-4 text-center">User Manager</h2>
@@ -46,7 +47,7 @@
 
     @if (isLoading)
     {
-        <p class="text-center">Loading data...</p>
+        <p class="text-center">@mess...</p>
     }
     else if (users?.Any() == true)
     {
@@ -113,11 +114,34 @@
     private string sortColumn = "UserCode";
     private bool sortAscending = true;
     private User userToDelete = null;
+    private HubConnection? hubConnection;
+    private string mess = "Loading data";
+
+    private void UpdateUrl()
+    {
+        var uri = $"/user-manager?search={searchTerm}&campus={selectedCampus}&department={selectedDepartment}&role={selectedRole}&page={currentPage}&sort={sortColumn}&asc={sortAscending}";
+        Navigation.NavigateTo(uri);
+    }
 
     protected override async Task OnInitializedAsync()
     {
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl(Navigation.ToAbsoluteUri("/Hub"))
+            .WithAutomaticReconnect()
+            .Build();
+
+        hubConnection.On("ReloadPage", async () =>
+        {
+            mess ="Reloading page...";
+            await InvokeAsync(StateHasChanged);
+            await JSRuntime.InvokeAsync<object>("location.reload");
+            await LoadUsers();
+        });
+        await hubConnection.StartAsync();
         await LoadInitialData();
         await LoadUsers();
+        Console.WriteLine($"Hub Connection State: {hubConnection.State}");
+
     }
 
     private async Task LoadInitialData()
@@ -146,6 +170,10 @@
             var result = await UserService.GetUsers(campusId, departmentId, selectedRole, searchTerm, currentPage, pageSize, sortColumn, sortAscending);
             users = result.Users ?? new List<User>();
             totalPages = (int)Math.Ceiling((double)result.TotalCount / pageSize);
+            UpdateUrl();
+        }catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);
         }
         finally
         {
@@ -233,5 +261,13 @@
     private async Task ConfirmDelete()
     {
         await LoadUsers();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (hubConnection is not null)
+        {
+            await hubConnection.DisposeAsync();
+        }
     }
 }
