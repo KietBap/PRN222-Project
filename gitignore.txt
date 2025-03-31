@@ -9,5 +9,9 @@ PRN222.RoomBooking.Services/obj/
 PRN222.RoomBooking.UserRazor/bin/
 PRN222.RoomBooking.UserRazor/obj/
 
+# Ignore build outputs
+bin/
+obj/
 .vs/
+.nuget/
 .git/
