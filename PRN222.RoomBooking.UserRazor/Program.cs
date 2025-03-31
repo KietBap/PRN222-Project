@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using PRN222.RoomBooking.Repositories.Data;
 using PRN222.RoomBooking.Repositories.UnitOfWork;
 using PRN222.RoomBooking.Services;
+using PRN222.RoomBooking.Services.Hubs;
 
 namespace PRN222.RoomBooking.UserRazor
 {
@@ -16,6 +18,9 @@ namespace PRN222.RoomBooking.UserRazor
             builder.Services.AddRazorPages();
 
             builder.Services.AddSignalR();
+
+            builder.Services.AddSingleton<IHubContext<NotificationHub>>(provider =>
+                 provider.GetRequiredService<IHubContext<NotificationHub>>());
 
             builder.Services.AddDbContext<FpturoomBookingDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionStringDB")));
@@ -52,8 +57,12 @@ namespace PRN222.RoomBooking.UserRazor
 
             app.UseRouting();
 
+            
+
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.MapHub<NotificationHub>("/notificationHub");
 
             app.MapRazorPages();
 

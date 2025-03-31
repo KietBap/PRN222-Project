@@ -1,7 +1,9 @@
 ﻿
+using Microsoft.AspNetCore.SignalR;
 using PRN222.RoomBooking.Repositories.Data;
 using PRN222.RoomBooking.Repositories.Enums;
 using PRN222.RoomBooking.Repositories.UnitOfWork;
+using PRN222.RoomBooking.Services.Hubs;
 using System.Linq.Expressions;
 
 namespace PRN222.RoomBooking.Services
@@ -9,10 +11,12 @@ namespace PRN222.RoomBooking.Services
     public class BookingService : IBookingService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IHubContext<NotificationHub> _hubContext;
 
-        public BookingService(IUnitOfWork unitOfWork)
+        public BookingService(IUnitOfWork unitOfWork, IHubContext<NotificationHub> hubContext)
         {
             _unitOfWork = unitOfWork;
+            _hubContext = hubContext;
         }
 
         public async Task<bool> CreateBookingAsync(string userCode, DateOnly bookingDate, List<int> roomSlotIds, string purpose)
@@ -58,6 +62,9 @@ namespace PRN222.RoomBooking.Services
                 await _unitOfWork.BookingRepository().AddAsync(booking);
                 await _unitOfWork.SaveAsync();
                 await transaction.CommitAsync();
+
+                await _hubContext.Clients.User(userCode)
+                    .SendAsync("ReceiveNotification", "Your booking has been successfully submitted and is awaiting approval!");
                 return true;
             }
             catch
@@ -318,6 +325,12 @@ namespace PRN222.RoomBooking.Services
                 await _unitOfWork.BookingRepository().UpdateAsync(booking);
                 await _unitOfWork.SaveAsync();
                 await transaction.CommitAsync();
+
+                string message = newStatus == BookingStatus.Booked
+                    ? "Your reservation has been accepted!"
+                    : "Your reservation has been cancelled.";
+                await _hubContext.Clients.User(booking.UserCode)
+                    .SendAsync("ReceiveNotification", message);
 
                 return true;
             }

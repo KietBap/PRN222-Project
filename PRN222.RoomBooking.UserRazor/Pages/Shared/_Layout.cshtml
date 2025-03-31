@@ -89,6 +89,32 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> <!-- Add Flatpickr JS -->
     <script src="~/js/site.js" asp-append-version="true"></script>
 
+    <script src="~/js/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script>
+        // Kết nối đến SignalR Hub
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/notificationHub")
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+
+        // Xử lý thông báo từ server
+        connection.on("ReceiveNotification", (message) => {
+            alert(message); // Hiển thị pop-up đơn giản
+            // Hoặc dùng thư viện như Toastify, SweetAlert để đẹp hơn
+        });
+
+        // Khởi động kết nối
+        connection.start().catch(err => console.error(err.toString()));
+
+        // Đảm bảo UserCode được gửi lên Hub (nếu cần)
+        connection.on("UserConnected", () => {
+            const userCode = "@User.FindFirst("UserCode")?.Value"; // Lấy từ Claims
+            connection.invoke("SendNotificationToUser", userCode);
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
