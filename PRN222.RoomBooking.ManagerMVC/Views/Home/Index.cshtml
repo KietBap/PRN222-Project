@@ -2,7 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="background-container">
+    <h1 class="display-4 text-white fw-bold">Welcome to PRN222 Room Booking</h1>
+    <p class="lead text-light">Your trusted system for booking meeting rooms efficiently.</p>
+
+    <div class="mt-4">
+        <a asp-controller="Rooms" asp-action="Index" class="btn btn-primary btn-lg">Rooms Manager</a>
+        <a asp-controller="Bookings" asp-action="ManagePending" class="btn btn-outline-light btn-lg">View Booking Pending</a>
+    </div>
 </div>

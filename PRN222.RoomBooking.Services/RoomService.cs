@@ -9,11 +9,13 @@ namespace PRN222.RoomBooking.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IBookingService _bookingService;
+        private readonly IUserService _userService;
 
-        public RoomService(IUnitOfWork unitOfWork, IBookingService bookingService)
+        public RoomService(IUnitOfWork unitOfWork, IBookingService bookingService, IUserService userService)
         {
             _unitOfWork = unitOfWork;
             _bookingService = bookingService;
+            _userService = userService;
         }
 
         public async Task<List<RoomSlot>> GetAvailableRoomSlotsAsync(int roomId, DateOnly bookingDate)
@@ -29,6 +31,60 @@ namespace PRN222.RoomBooking.Services
 
             // Filter out booked slots
             return roomSlots.Where(rs => !bookedRoomSlotIds.Contains(rs.RoomSlotId)).ToList();
+        }
+
+        //For Manager
+        public async Task<(List<RoomSlot> roomSlots, int totalItems)> GetBookedRoomSlotsForCampusAsync(int campusId, int pageNumber, int pageSize)
+        {
+            // Build the filter expression to get Booked room slots for the campus
+            Expression<Func<RoomSlot, bool>> filter = rs => rs.Status == RoomSlotStatus.Booked && rs.Room.CampusId == campusId;
+
+            // Get total count of room slots
+            var totalItems = await _unitOfWork.RoomSlotRepository().CountAsync(new List<Expression<Func<RoomSlot, bool>>> { filter });
+
+            // Fetch paginated room slots with associated Room and Campus
+            var roomSlots = await _unitOfWork.RoomSlotRepository().GetAllAsync(
+                filter: new List<Expression<Func<RoomSlot, bool>>> { filter },
+                orderBy: rs => rs.RoomId, // Order by RoomId for consistency
+                ascending: true,
+                page: pageNumber,
+                pageSize: pageSize,
+                includes: new Expression<Func<RoomSlot, object>>[] { rs => rs.Room, rs => rs.Room.Campus }
+            );
+
+            return (roomSlots, totalItems);
+        }
+
+        public async Task<List<RoomSlot>> GetBookedRoomSlotsForRoomAsync(int roomId)
+        {
+            // Build the filter expression to get Booked room slots for the room
+            Expression<Func<RoomSlot, bool>> filter = rs => rs.RoomId == roomId && rs.Status == RoomSlotStatus.Booked;
+
+            // Fetch room slots with associated Room and Bookings
+            var roomSlots = await _unitOfWork.RoomSlotRepository().GetAllAsync(
+                filter: new List<Expression<Func<RoomSlot, bool>>> { filter },
+                orderBy: rs => rs.SlotNumber,
+                ascending: true,
+                includes: new Expression<Func<RoomSlot, object>>[]
+                {
+                    rs => rs.Room,
+                    rs => rs.Bookings // Include the Bookings collection
+                }
+            );
+
+            // Fetch the User for each Booking
+            foreach (var roomSlot in roomSlots)
+            {
+                foreach (var booking in roomSlot.Bookings)
+                {
+                    // Fetch the User using the UserCode
+                    var user = await _userService.GetUserByCode(booking.UserCode);
+                    // Add the User to the Booking (we'll use a dictionary in the view to access this)
+                    booking.UserCode = user?.FullName ?? "Unknown User"; // Temporarily store the FullName in UserCode for display
+                }
+            }
+
+            return roomSlots;
         }
 
         public async Task<(List<Room>, int totalItems)> GetRoom(string? roomName, string? campus, string? sortBy, int page, int pageSize, int userCampusId)

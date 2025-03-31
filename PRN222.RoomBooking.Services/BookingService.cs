@@ -217,5 +217,115 @@ namespace PRN222.RoomBooking.Services
 
             return (bookings, totalItems);
         }
+
+        public async Task<(List<Booking> bookings, int totalItems)> GetPendingBookingsForCampusAsync(int campusId, int pageNumber, int pageSize)
+        {
+            // Build the filter expression to get Pending bookings for the campus
+            Expression<Func<Booking, bool>> filter = b => b.BookingStatus == BookingStatus.Pending &&
+                                                         b.RoomSlots.Any(rs => rs.Room.CampusId == campusId);
+
+            // Get total count of bookings
+            var totalItems = await _unitOfWork.BookingRepository().CountAsync(new List<Expression<Func<Booking, bool>>> { filter });
+
+            // Fetch paginated bookings with associated RoomSlots
+            var bookings = await _unitOfWork.BookingRepository().GetAllAsync(
+                filter: new List<Expression<Func<Booking, bool>>> { filter },
+                orderBy: b => b.CreatedDate,
+                ascending: false,
+                page: pageNumber,
+                pageSize: pageSize,
+                includes: new Expression<Func<Booking, object>>[] { b => b.RoomSlots } // Include only RoomSlots
+            );
+
+            // Manually include the Room for each RoomSlot
+            foreach (var booking in bookings)
+            {
+                foreach (var roomSlot in booking.RoomSlots)
+                {
+                    // Explicitly load the Room for each RoomSlot
+                    await _unitOfWork.RoomSlotRepository()
+                        .GetByIdAsync(roomSlot.RoomSlotId, rs => rs.Room);
+                }
+            }
+
+            return (bookings, totalItems);
+        }
+
+        public async Task<bool> UpdateBookingStatusAsync(int bookingId, BookingStatus newStatus)
+        {
+            using var transaction = await _unitOfWork.BeginTransactionAsync();
+            try
+            {
+                // Fetch the Booking with its associated RoomSlots
+                var booking = await _unitOfWork.BookingRepository().GetByIdAsync(
+                    bookingId,
+                    includes: new Expression<Func<Booking, object>>[] { b => b.RoomSlots }
+                );
+
+                // Validate the Booking
+                if (booking == null || booking.BookingStatus != BookingStatus.Pending)
+                {
+                    return false;
+                }
+
+                // Update the Booking status
+                booking.BookingStatus = newStatus;
+
+                // If the status is Cancelled, update RoomSlot status to Available
+                if (newStatus == BookingStatus.Cancelled)
+                {
+                    var roomIds = booking.RoomSlots.Select(rs => rs.RoomId).Distinct().ToList();
+                    foreach (var roomSlot in booking.RoomSlots)
+                    {
+                        roomSlot.Status = RoomSlotStatus.Available;
+                    }
+
+                    // Update Room Status for each unique Room
+                    foreach (var roomId in roomIds)
+                    {
+                        var room = await _unitOfWork.RoomRepository().GetByIdAsync(roomId);
+                        var allSlots = await _unitOfWork.RoomSlotRepository().GetAsync(rs => rs.RoomId == roomId);
+                        if (allSlots.Any(rs => rs.Status == RoomSlotStatus.Available))
+                        {
+                            room.Status = RoomStatus.Available;
+                            await _unitOfWork.RoomRepository().UpdateAsync(room);
+                        }
+                    }
+                }
+                else if (newStatus == BookingStatus.Booked)
+                {
+                    // If the status is Booked, update RoomSlot status to Booked
+                    var roomIds = booking.RoomSlots.Select(rs => rs.RoomId).Distinct().ToList();
+                    foreach (var roomSlot in booking.RoomSlots)
+                    {
+                        roomSlot.Status = RoomSlotStatus.Booked;
+                    }
+
+                    // Update Room Status for each unique Room
+                    foreach (var roomId in roomIds)
+                    {
+                        var room = await _unitOfWork.RoomRepository().GetByIdAsync(roomId);
+                        var allSlots = await _unitOfWork.RoomSlotRepository().GetAsync(rs => rs.RoomId == roomId);
+                        if (!allSlots.Any(rs => rs.Status == RoomSlotStatus.Available))
+                        {
+                            room.Status = RoomStatus.Booked;
+                            await _unitOfWork.RoomRepository().UpdateAsync(room);
+                        }
+                    }
+                }
+
+                // Update the Booking
+                await _unitOfWork.BookingRepository().UpdateAsync(booking);
+                await _unitOfWork.SaveAsync();
+                await transaction.CommitAsync();
+
+                return true;
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                return false;
+            }
+        }
     }
 }

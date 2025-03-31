@@ -70,7 +70,7 @@ namespace PRN222.RoomBooking.UserRazor.Pages.User
                 new Claim(ClaimTypes.Name, Account.FullName.ToString()), 
                 new Claim(ClaimTypes.NameIdentifier, Account.UserCode.ToString()),
                 new Claim(ClaimTypes.Role, Account.Role.ToString()),
-                new Claim(ClaimTypes.GivenName, Account.Campus?.CampusName ?? "Unknown")
+                new Claim(ClaimTypes.GivenName, Account.Campus?.CampusName ?? "Unknown Campus")
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

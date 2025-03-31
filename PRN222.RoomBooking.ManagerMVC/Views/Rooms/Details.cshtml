@@ -1,0 +1,167 @@
+﻿@model PRN222.RoomBooking.Repositories.Data.Room
+@using PRN222.RoomBooking.Repositories.Enums
+
+@{
+    ViewData["Title"] = "Room Details";
+    var bookedRoomSlots = ViewBag.BookedRoomSlots as List<PRN222.RoomBooking.Repositories.Data.RoomSlot> ?? new List<PRN222.RoomBooking.Repositories.Data.RoomSlot>();
+}
+
+<style>
+    .container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .text-primary {
+        color: #0052cc !important;
+    }
+
+    .info-card, .slots-card {
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+        .info-card .card-header {
+            background: #0052cc;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .slots-card .card-header {
+            background: #17a2b8;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+    .btn-primary {
+        background: #0052cc;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: #003d99;
+            transform: translateY(-2px);
+        }
+
+    .dl-horizontal dt {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .dl-horizontal dd {
+        color: #555;
+    }
+
+    .table thead {
+        background: #0052cc;
+        color: #fff;
+    }
+
+    .table tbody tr {
+        transition: background 0.3s ease;
+    }
+
+        .table tbody tr:hover {
+            background: #f8f9fa;
+        }
+</style>
+
+<div class="container mt-4">
+    <h2 class="page-title text-center">Room Details</h2>
+
+    <!-- Thông tin phòng -->
+    <div class="card info-card">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Room Information</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row mb-0 dl-horizontal">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.RoomName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.RoomName)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Capacity)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Capacity)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+                <dd class="col-sm-9">
+                    <span class="badge @(Model.Status == RoomStatus.Available ? "bg-success" : Model.Status == RoomStatus.Booked ? "bg-warning" : "bg-danger")">
+                        @Html.DisplayFor(model => model.Status)
+                    </span>
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Campus)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Campus.CampusName)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <!-- Danh sách Room Slots đã được đặt -->
+    <div class="card slots-card mt-4">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Booked Room Slots</h4>
+        </div>
+        <div class="card-body">
+            @if (bookedRoomSlots.Any())
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Slot Number</th>
+                            <th>Time Range</th>
+                            <th>Booking Date</th>
+                            <th>User Name</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var roomSlot in bookedRoomSlots)
+                        {
+                            // Get the associated booking (assuming one booking per room slot for simplicity)
+                            var booking = roomSlot.Bookings.FirstOrDefault();
+                            if (booking != null)
+                            {
+                                <tr>
+                                    <td>@roomSlot.SlotNumber</td>
+                                    <td>@roomSlot.StartTime?.ToString("HH:mm") - @roomSlot.EndTime?.ToString("HH:mm")</td>
+                                    <td>@booking.BookingDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@(booking.UserCodeNavigation?.FullName ?? "Unknown User")</td>
+                                    <td>@booking.Purpose</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p class="text-muted">No booked room slots for this room.</p>
+            }
+        </div>
+    </div>
+
+    <!-- Nút quay lại -->
+    <div class="mt-4 text-center">
+        <a asp-action="Index" class="btn btn-primary">
+            <i class="fas fa-arrow-left me-2"></i> Back to List
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+}

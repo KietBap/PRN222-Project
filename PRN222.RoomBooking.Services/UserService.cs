@@ -17,7 +17,8 @@ namespace PRN222.RoomBooking.Services
         {
             return await _unitOfWork.UserRepository()
                 .FindByConditionAsync(
-                    u => u.Email == email && u.Password == password
+                    u => u.Email == email && u.Password == password,
+                    u => u.Campus
                 );
         }
 

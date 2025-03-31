@@ -29,7 +29,9 @@ namespace PRN222.RoomBooking.UserRazor
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
-                    options.LoginPath = "/User/Login"; 
+
+                    options.Cookie.Name = "UserAuthCookie"; // Đặt tên cookie riêng cho User
+                    options.LoginPath = "/User/Login";
                     options.LogoutPath = "/User/Logout";
                     options.AccessDeniedPath = "/AccessDenied";
                     options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
