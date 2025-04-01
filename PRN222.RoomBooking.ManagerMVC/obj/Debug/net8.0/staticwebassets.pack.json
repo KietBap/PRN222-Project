@@ -989,6 +989,10 @@
       "PackagePath": "staticwebassets\\microsoft\\signalr\\dist\\webworker\\signalr.min.js.map"
     },
     {
+      "Id": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.ManagerMVC\\wwwroot\\microsoft\\signalr\\package-lock.json",
+      "PackagePath": "staticwebassets\\microsoft\\signalr\\package-lock.json"
+    },
+    {
       "Id": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.ManagerMVC\\wwwroot\\microsoft\\signalr\\package.json",
       "PackagePath": "staticwebassets\\microsoft\\signalr\\package.json"
     },

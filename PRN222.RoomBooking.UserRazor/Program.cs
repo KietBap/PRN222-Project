@@ -16,11 +16,8 @@ namespace PRN222.RoomBooking.UserRazor
 
             // Add services to the container.
             builder.Services.AddRazorPages();
-
             builder.Services.AddSignalR();
 
-            builder.Services.AddSingleton<IHubContext<NotificationHub>>(provider =>
-                 provider.GetRequiredService<IHubContext<NotificationHub>>());
 
             builder.Services.AddDbContext<FpturoomBookingDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionStringDB")));
@@ -61,10 +58,15 @@ namespace PRN222.RoomBooking.UserRazor
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.MapHub<NotificationHub>("/notificationHub");
 
             app.MapRazorPages();
+
+            
 
             app.Run();
         }

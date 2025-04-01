@@ -47,7 +47,7 @@ namespace PRN222.RoomBooking.UserRazor.Pages.Rooms
                 PageNumber = pageNumber < 1 ? 1 : pageNumber;
 
                 // Lấy email hoặc UserCode từ claim
-                var userEmail = User.FindFirst(ClaimTypes.Email)?.Value;
+                //var userEmail = User.FindFirst(ClaimTypes.Email)?.Value;
                 var userCode = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
                 // Lấy thông tin người dùng từ cơ sở dữ liệu

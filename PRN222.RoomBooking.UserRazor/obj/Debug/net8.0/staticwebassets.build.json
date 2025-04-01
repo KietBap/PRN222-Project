@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HV4+rh6slGswmAbv0T6xWTzh6FXs1q/Q+Boyel7h4PU=",
+  "Hash": "gvsva1HzAAsgyBit7Pp1ZrMYyEgy58WleV/4aNQBZ6Y=",
   "Source": "PRN222.RoomBooking.UserRazor",
   "BasePath": "_content/PRN222.RoomBooking.UserRazor",
   "Mode": "Default",
@@ -3625,6 +3625,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\microsoft\\signalr\\package.json"
+    },
+    {
+      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.UserRazor\\wwwroot\\js\\microsoft\\signalr\\package-lock.json",
+      "SourceId": "PRN222.RoomBooking.UserRazor",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.UserRazor\\wwwroot\\",
+      "BasePath": "_content/PRN222.RoomBooking.UserRazor",
+      "RelativePath": "js/microsoft/signalr/package-lock.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\microsoft\\signalr\\package-lock.json"
     },
     {
       "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.UserRazor\\wwwroot\\js\\microsoft\\signalr\\README.md",
