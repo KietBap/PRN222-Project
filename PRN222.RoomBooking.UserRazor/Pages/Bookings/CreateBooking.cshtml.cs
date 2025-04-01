@@ -1,11 +1,12 @@
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.SignalR;
 using PRN222.RoomBooking.Repositories.Data;
 using PRN222.RoomBooking.Repositories.UnitOfWork;
 using PRN222.RoomBooking.Services;
+using PRN222.RoomBooking.Services.Hubs;
 using System.Security.Claims;
-
 
 namespace PRN222.RoomBooking.UserRazor.Pages.Bookings
 {
@@ -15,12 +16,14 @@ namespace PRN222.RoomBooking.UserRazor.Pages.Bookings
         private readonly IUnitOfWork _unitOfWork;
         private readonly IBookingService _bookingService;
         private readonly IRoomService _roomService;
+        private readonly IHubContext<NotificationHub> _hubContext;
 
-        public CreateBookingModel(IUnitOfWork unitOfWork, IBookingService bookingService, IRoomService roomService)
+        public CreateBookingModel(IUnitOfWork unitOfWork, IBookingService bookingService, IRoomService roomService, IHubContext<NotificationHub> hubContext)
         {
             _unitOfWork = unitOfWork;
             _bookingService = bookingService;
             _roomService = roomService;
+            _hubContext = hubContext;
         }
 
         [BindProperty]
@@ -56,7 +59,6 @@ namespace PRN222.RoomBooking.UserRazor.Pages.Bookings
 
         public async Task<IActionResult> OnPostAsync()
         {
-            // Check if the user is authenticated
             if (!User.Identity.IsAuthenticated)
             {
                 TempData["LoginMessage"] = "You need to log in to create a booking.";
@@ -78,12 +80,12 @@ namespace PRN222.RoomBooking.UserRazor.Pages.Bookings
                 return Page();
             }
 
-
             var dateOnly = DateOnly.FromDateTime(BookingDate);
             var success = await _bookingService.CreateBookingAsync(userCode, dateOnly, SelectedRoomSlotIds, Purpose);
 
             if (success)
             {
+                SuccessMessage = "Booking submitted successfully!";
                 return RedirectToPage("/Bookings/BookingHistory");
             }
             else

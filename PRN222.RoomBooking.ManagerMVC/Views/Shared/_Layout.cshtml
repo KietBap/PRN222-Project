@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body class="bg-light d-flex flex-column min-vh-100">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
             <div class="container d-flex justify-content-between align-items-center">
-                <!-- LOGO AND NAV LINKS ON THE LEFT -->
+                <!-- Logo và Nav Links bên trái -->
                 <div class="d-flex align-items-center">
                     <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
                         <img src="/images/logo.png" alt="Logo" style="height: 50px; margin-right: 10px;">
@@ -43,21 +44,31 @@
                     </div>
                 </div>
 
-                <!-- USER INFO, NOTIFICATIONS, AND LOGIN/LOGOUT ON THE RIGHT -->
+                <!-- Thông tin User, Thông báo và Đăng xuất bên phải -->
                 <div class="d-flex align-items-center">
                     @if (User.Identity.IsAuthenticated)
                     {
                         var userName = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
                         var userCampus = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.GivenName)?.Value;
                         <span class="text-white fw-bold me-3">Welcome, @userName - @userCampus</span>
-                        <!-- Notification Icon -->
-                        <a href="#" class="me-3 text-white position-relative">
-                            <i class="bi bi-bell-fill" style="font-size: 1.5rem;"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                3 <!-- Example notification count -->
-                                <span class="visually-hidden">unread notifications</span>
-                            </span>
-                        </a>
+
+                        <!-- Dropdown Thông báo -->
+                        <div class="dropdown me-3">
+                            <a href="#" class="text-white position-relative" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-bell-fill" style="font-size: 1.5rem;"></i>
+                                <span id="notificationCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                    <span class="visually-hidden">unread notifications</span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="max-height: 300px; overflow-y: auto;">
+                                <li class="dropdown-item-text fw-bold">Notifications</li>
+                                <li><hr class="dropdown-divider"></li>
+                                <div id="notificationList">
+                                    <!-- Thông báo sẽ được thêm động bằng JavaScript -->
+                                </div>
+                            </ul>
+                        </div>
                         <a class="btn btn-outline-light" asp-controller="User" asp-action="Logout">Logout</a>
                     }
                     else
@@ -66,8 +77,8 @@
                     }
                 </div>
 
-                <!-- Navbar Toggler for Mobile -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <!-- Nút Toggler cho Mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
@@ -86,11 +97,106 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+        let notifications = [];
+        let notificationCount = 0;
 
-    @RenderSection("Scripts", false)
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/notificationHub")
+            .withAutomaticReconnect()
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+
+        connection.on("ReceiveNotification", (message) => {
+            console.log("Received notification: " + message);
+            showToast(message); // Hiển thị Toast
+            addNotification(message); // Thêm vào danh sách thông báo
+            updateNotificationList();
+        });
+
+        connection.on("ReceiveBookingUpdate", (message) => {
+            console.log("Received booking update: " + message);
+            // Không hiển thị Toast hoặc thêm thông báo, chỉ làm mới danh sách
+            if (window.location.pathname.toLowerCase().includes('/bookings/managepending')) {
+                console.log("Refreshing booking list...");
+                refreshBookingList();
+            }
+        });
+
+        connection.start()
+            .then(() => console.log("SignalR connected successfully"))
+            .catch(err => console.error("SignalR Connection Error: ", err));
+
+        connection.onreconnected(() => {
+            console.log("SignalR reconnected successfully");
+        });
+
+        function showToast(message) {
+            Toastify({
+                text: message,
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "#4CAF50",
+            }).showToast();
+        }
+
+        function addNotification(message) {
+            notifications.push({
+                message: message,
+                timestamp: new Date().toLocaleString()
+            });
+            notificationCount++;
+            document.getElementById("notificationCount").innerText = notificationCount;
+        }
+
+        function updateNotificationList() {
+            const notificationList = document.getElementById("notificationList");
+            notificationList.innerHTML = "";
+            if (notifications.length === 0) {
+                notificationList.innerHTML = '<li class="dropdown-item-text text-muted">No notifications</li>';
+            } else {
+                notifications.forEach(notification => {
+                    notificationList.innerHTML += `
+                            <li class="dropdown-item">
+                                <div>
+                                    <small class="text-muted">${notification.timestamp}</small>
+                                    <p>${notification.message}</p>
+                                </div>
+                            </li>`;
+                });
+            }
+        }
+
+        function refreshBookingList() {
+            console.log("Fetching updated booking list...");
+            $.ajax({
+                url: '/Bookings/ManagePending',
+                method: 'GET',
+                success: function (data) {
+                    console.log("Booking list refreshed successfully");
+                    $('#bookingListContainer').html($(data).find('#bookingListContainer').html());
+                },
+                error: function (err) {
+                    console.error('Error refreshing booking list:', err);
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            updateNotificationList();
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

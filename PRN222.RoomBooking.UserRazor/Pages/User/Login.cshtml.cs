@@ -76,7 +76,7 @@ namespace PRN222.RoomBooking.UserRazor.Pages.User
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var authenProperties = new AuthenticationProperties
             {
-                IsPersistent = false
+                IsPersistent = true
             };
 
             await HttpContext.SignInAsync(

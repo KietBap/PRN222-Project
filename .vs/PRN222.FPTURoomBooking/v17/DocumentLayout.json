@@ -1,7 +1,36 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ADMIN\\Downloads\\PRN222-Project2\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|d:\\major\\ki_7_sp25\\prn222\\projectv2\\prn222.roombooking.services\\hubs\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|solutionrelative:prn222.roombooking.services\\hubs\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|d:\\major\\ki_7_sp25\\prn222\\projectv2\\prn222.roombooking.userrazor\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|solutionrelative:prn222.roombooking.userrazor\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|d:\\major\\ki_7_sp25\\prn222\\projectv2\\prn222.roombooking.services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|solutionrelative:prn222.roombooking.services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|d:\\major\\ki_7_sp25\\prn222\\projectv2\\prn222.roombooking.userrazor\\pages\\bookings\\bookinghistory.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|solutionrelative:prn222.roombooking.userrazor\\pages\\bookings\\bookinghistory.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|d:\\major\\ki_7_sp25\\prn222\\projectv2\\prn222.roombooking.userrazor\\pages\\bookings\\bookinghistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|solutionrelative:prn222.roombooking.userrazor\\pages\\bookings\\bookinghistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|d:\\major\\ki_7_sp25\\prn222\\projectv2\\prn222.roombooking.userrazor\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|solutionrelative:prn222.roombooking.userrazor\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|d:\\major\\ki_7_sp25\\prn222\\projectv2\\prn222.roombooking.managermvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|solutionrelative:prn222.roombooking.managermvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,23 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:11:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -41,27 +58,102 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:10:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "site.js",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.UserRazor\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.UserRazor\\wwwroot\\js\\site.js",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.UserRazor\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "PRN222.RoomBooking.UserRazor\\wwwroot\\js\\site.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-01T12:29:54.663Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:5:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BookingHistory.cshtml.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.UserRazor\\Pages\\Bookings\\BookingHistory.cshtml.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.UserRazor\\Pages\\Bookings\\BookingHistory.cshtml.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.UserRazor\\Pages\\Bookings\\BookingHistory.cshtml.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.UserRazor\\Pages\\Bookings\\BookingHistory.cshtml.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAqwD0AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T12:19:06.47Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:3:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookingHistory.cshtml",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.UserRazor\\Pages\\Bookings\\BookingHistory.cshtml",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.UserRazor\\Pages\\Bookings\\BookingHistory.cshtml",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.UserRazor\\Pages\\Bookings\\BookingHistory.cshtml",
+              "RelativeToolTip": "PRN222.RoomBooking.UserRazor\\Pages\\Bookings\\BookingHistory.cshtml",
+              "ViewState": "AQIAAO4AAAAAAAAAAAAkwBUBAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T12:17:14.138Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.ManagerMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.ManagerMVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.ManagerMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "PRN222.RoomBooking.ManagerMVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAtwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T12:14:14.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BookingService.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Services\\BookingService.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Services\\BookingService.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Services\\BookingService.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Services\\BookingService.cs",
+              "ViewState": "AQIAAEEBAAAAAAAAAAAowFYBAAB2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T12:11:57.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NotificationHub.cs",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Services\\Hubs\\NotificationHub.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Services\\Hubs\\NotificationHub.cs",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.Services\\Hubs\\NotificationHub.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Services\\Hubs\\NotificationHub.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAiwB4AAABLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T12:07:44.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAowFcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-01T12:06:32.649Z",
+              "EditorCaption": ""
             }
           ]
         },

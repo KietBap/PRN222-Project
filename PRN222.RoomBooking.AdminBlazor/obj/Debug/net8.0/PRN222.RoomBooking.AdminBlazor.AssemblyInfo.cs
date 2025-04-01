@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PRN222.RoomBooking.AdminBlazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08b2e6037b60d226d361759da3ba4fc0b009d813")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35ead2b866b6972fe9ee06ce88bc3223e3106815")]
 [assembly: System.Reflection.AssemblyProductAttribute("PRN222.RoomBooking.AdminBlazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PRN222.RoomBooking.AdminBlazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
-using PRN222.RoomBooking.Repositories;
 using PRN222.RoomBooking.Repositories.Data;
 using PRN222.RoomBooking.Repositories.UnitOfWork;
 using PRN222.RoomBooking.Services;
+using PRN222.RoomBooking.Services.Hubs;
 
 namespace PRN222.RoomBooking.ManagerMVC
 {
@@ -17,6 +18,7 @@ namespace PRN222.RoomBooking.ManagerMVC
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddSignalR();
+            
 
             builder.Services.AddDbContext<FpturoomBookingDbContext>(options =>
                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionStringDB")));
@@ -37,6 +39,16 @@ namespace PRN222.RoomBooking.ManagerMVC
                     options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
                 });
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowUserRazor", builder =>
+                {
+                    builder.WithOrigins("https://localhost:7252") // Port của UserRazor
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -49,11 +61,13 @@ namespace PRN222.RoomBooking.ManagerMVC
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCors("AllowUserRazor");
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.MapHub<NotificationHub>("/notificationHub");
 
             app.MapControllerRoute(
                 name: "default",

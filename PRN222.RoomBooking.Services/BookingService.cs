@@ -1,7 +1,9 @@
 ﻿
+using Microsoft.AspNetCore.SignalR;
 using PRN222.RoomBooking.Repositories.Data;
 using PRN222.RoomBooking.Repositories.Enums;
 using PRN222.RoomBooking.Repositories.UnitOfWork;
+using PRN222.RoomBooking.Services.Hubs;
 using System.Linq.Expressions;
 
 namespace PRN222.RoomBooking.Services
@@ -9,10 +11,12 @@ namespace PRN222.RoomBooking.Services
     public class BookingService : IBookingService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IHubContext<NotificationHub> _hubContext;
 
-        public BookingService(IUnitOfWork unitOfWork)
+        public BookingService(IUnitOfWork unitOfWork, IHubContext<NotificationHub> hubContext)
         {
             _unitOfWork = unitOfWork;
+            _hubContext = hubContext;
         }
 
         public async Task<bool> CreateBookingAsync(string userCode, DateOnly bookingDate, List<int> roomSlotIds, string purpose)
@@ -20,16 +24,14 @@ namespace PRN222.RoomBooking.Services
             using var transaction = await _unitOfWork.BeginTransactionAsync();
             try
             {
-                // Check if any of the selected RoomSlots are already booked for the given date
                 var bookedRoomSlotIds = await GetBookedRoomSlotIdsAsync(roomSlotIds.First(), bookingDate);
                 var alreadyBookedSlots = roomSlotIds.Intersect(bookedRoomSlotIds).ToList();
 
                 if (alreadyBookedSlots.Any())
                 {
-                    return false; // Some slots are already booked
+                    return false;
                 }
 
-                // Create a new booking
                 var booking = new Booking
                 {
                     UserCode = userCode,
@@ -40,7 +42,6 @@ namespace PRN222.RoomBooking.Services
                     RoomSlots = new List<RoomSlot>()
                 };
 
-                // Add the selected RoomSlots to the booking
                 foreach (var roomSlotId in roomSlotIds)
                 {
                     var roomSlot = await _unitOfWork.RoomSlotRepository().GetByIdAsync(roomSlotId);
@@ -51,13 +52,38 @@ namespace PRN222.RoomBooking.Services
                     else
                     {
                         await transaction.RollbackAsync();
-                        return false; // Slot is not available
+                        return false;
                     }
                 }
 
                 await _unitOfWork.BookingRepository().AddAsync(booking);
                 await _unitOfWork.SaveAsync();
                 await transaction.CommitAsync();
+
+                // Gửi thông báo đến user qua SignalR của Razor Pages
+                await _hubContext.Clients.User(userCode)
+                    .SendAsync("ReceiveNotification", "Your booking has been successfully submitted and is awaiting approval!");
+
+                var roomSlots = await _unitOfWork.RoomSlotRepository().GetByIdAsync(roomSlotIds.First(), rs => rs.Room, rs => rs.Room.Campus);
+                var campusName = roomSlots?.Room?.Campus?.CampusName;
+
+                if (!string.IsNullOrEmpty(campusName))
+                {
+                    var message = $"There is a new booking at campus {campusName} waiting for approval!";
+                    using var httpClient = new HttpClient();
+                    var request = new { CampusName = campusName, Message = message };
+                    var content = new StringContent(
+                        System.Text.Json.JsonSerializer.Serialize(request),
+                        System.Text.Encoding.UTF8,
+                        "application/json");
+
+                    var response = await httpClient.PostAsync("https://localhost:7285/api/NotifyManager", content);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("Failed to notify manager: " + response.ReasonPhrase);
+                    }
+                }
+
                 return true;
             }
             catch
@@ -66,6 +92,7 @@ namespace PRN222.RoomBooking.Services
                 return false;
             }
         }
+
         public async Task<List<int>> GetBookedRoomSlotIdsAsync(int roomId, DateOnly bookingDate)
         {
             // Get all bookings for the given room and date
@@ -256,22 +283,18 @@ namespace PRN222.RoomBooking.Services
             using var transaction = await _unitOfWork.BeginTransactionAsync();
             try
             {
-                // Fetch the Booking with its associated RoomSlots
                 var booking = await _unitOfWork.BookingRepository().GetByIdAsync(
                     bookingId,
                     includes: new Expression<Func<Booking, object>>[] { b => b.RoomSlots }
                 );
 
-                // Validate the Booking
                 if (booking == null || booking.BookingStatus != BookingStatus.Pending)
                 {
                     return false;
                 }
 
-                // Update the Booking status
                 booking.BookingStatus = newStatus;
 
-                // If the status is Cancelled, update RoomSlot status to Available
                 if (newStatus == BookingStatus.Cancelled)
                 {
                     var roomIds = booking.RoomSlots.Select(rs => rs.RoomId).Distinct().ToList();
@@ -280,7 +303,6 @@ namespace PRN222.RoomBooking.Services
                         roomSlot.Status = RoomSlotStatus.Available;
                     }
 
-                    // Update Room Status for each unique Room
                     foreach (var roomId in roomIds)
                     {
                         var room = await _unitOfWork.RoomRepository().GetByIdAsync(roomId);
@@ -294,14 +316,12 @@ namespace PRN222.RoomBooking.Services
                 }
                 else if (newStatus == BookingStatus.Booked)
                 {
-                    // If the status is Booked, update RoomSlot status to Booked
                     var roomIds = booking.RoomSlots.Select(rs => rs.RoomId).Distinct().ToList();
                     foreach (var roomSlot in booking.RoomSlots)
                     {
                         roomSlot.Status = RoomSlotStatus.Booked;
                     }
 
-                    // Update Room Status for each unique Room
                     foreach (var roomId in roomIds)
                     {
                         var room = await _unitOfWork.RoomRepository().GetByIdAsync(roomId);
@@ -314,10 +334,18 @@ namespace PRN222.RoomBooking.Services
                     }
                 }
 
-                // Update the Booking
                 await _unitOfWork.BookingRepository().UpdateAsync(booking);
                 await _unitOfWork.SaveAsync();
                 await transaction.CommitAsync();
+
+                // Gửi thông báo tới user qua SignalR
+                await _hubContext.Clients.User(booking.UserCode)
+                    .SendAsync("ReceiveNotification", $"Booking #{bookingId} has been {newStatus.ToString().ToLower()}");
+
+                // Gửi tín hiệu để làm mới trang Booking History của user
+                await _hubContext.Clients.User(booking.UserCode)
+                    .SendAsync("RefreshBookingHistory", bookingId);
+
 
                 return true;
             }
@@ -328,4 +356,5 @@ namespace PRN222.RoomBooking.Services
             }
         }
     }
-}
+ }
+
