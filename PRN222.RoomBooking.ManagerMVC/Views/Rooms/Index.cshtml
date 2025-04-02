@@ -50,6 +50,34 @@
             transform: translateY(-2px);
         }
 
+    .btn-warning {
+        background: #ffc107;
+        border: none;
+        border-radius: 8px;
+        padding: 5px 15px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-warning:hover {
+            background: #e0a800;
+            transform: translateY(-2px);
+        }
+
+    .btn-danger {
+        background: #dc3545;
+        border: none;
+        border-radius: 8px;
+        padding: 5px 15px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-danger:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+
     .table-card {
         border-radius: 10px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -163,8 +191,9 @@
                             </td>
                             <td>
                                 <a asp-action="Details" asp-route-id="@room.RoomId" class="btn btn-info btn-sm">Details</a>
-                                <a asp-action="Delete" asp-route-id="@room.RoomId" class="btn btn-danger btn-sm">Delete</a>
                                 <a asp-action="Edit" asp-route-id="@room.RoomId" class="btn btn-sm btn-warning">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@room.RoomId" class="btn btn-danger btn-sm">Delete</a>
+                                <a asp-action="ManageRoomSlots" asp-route-id="@room.RoomId" class="btn btn-primary btn-sm">Manage Slots</a>
                             </td>
                         </tr>
                     }

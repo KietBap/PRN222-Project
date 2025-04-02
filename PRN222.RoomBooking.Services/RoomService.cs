@@ -150,10 +150,45 @@ namespace PRN222.RoomBooking.Services
                 await _unitOfWork.RoomRepository().AddAsync(room);
                 await _unitOfWork.SaveAsync();
                 Console.WriteLine($"Room created with ID: {room.RoomId}");
+
+                // Auto-generate RoomSlots for the new room
+                await GenerateRoomSlotsForRoom(room.RoomId);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error in CreateRoomAsync: {ex.Message}");
+                throw;
+            }
+        }
+
+        private async Task GenerateRoomSlotsForRoom(int roomId)
+        {
+            try
+            {
+                // Generate 8 slots for a 24-hour day (each slot is 3 hours)
+                for (int slotNumber = 1; slotNumber <= 8; slotNumber++)
+                {
+                    var startHour = (slotNumber - 1) * 3; // 0, 3, 6, ..., 21
+                    var endHour = startHour + 3; // 3, 6, 9, ..., 24
+
+                    var roomSlot = new RoomSlot
+                    {
+                        RoomId = roomId,
+                        SlotNumber = slotNumber,
+                        StartTime = new TimeOnly(startHour, 0), // e.g., 00:00, 03:00, ...
+                        EndTime = new TimeOnly(endHour == 24 ? 0 : endHour, 0), // 24:00 becomes 00:00
+                        Status = RoomSlotStatus.Available // Default status
+                    };
+
+                    await _unitOfWork.RoomSlotRepository().AddAsync(roomSlot);
+                }
+
+                await _unitOfWork.SaveAsync();
+                Console.WriteLine($"Generated 8 RoomSlots for RoomId: {roomId}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error generating RoomSlots for RoomId {roomId}: {ex.Message}");
                 throw;
             }
         }
@@ -227,6 +262,81 @@ namespace PRN222.RoomBooking.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error updating room {room.RoomId}: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task<RoomSlot> GetRoomSlotById(int roomSlotId)
+        {
+            return await _unitOfWork.RoomSlotRepository().GetByIdAsync(
+                id: roomSlotId,
+                includes: new Expression<Func<RoomSlot, object>>[] { rs => rs.Room }
+            );
+        }
+
+        public async Task CreateRoomSlotAsync(RoomSlot roomSlot)
+        {
+            try
+            {
+                await _unitOfWork.RoomSlotRepository().AddAsync(roomSlot);
+                await _unitOfWork.SaveAsync();
+                Console.WriteLine($"RoomSlot created with ID: {roomSlot.RoomSlotId}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in CreateRoomSlotAsync: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task UpdateRoomSlotAsync(RoomSlot roomSlot)
+        {
+            try
+            {
+                var existingRoomSlot = await _unitOfWork.RoomSlotRepository().GetByIdAsync(roomSlot.RoomSlotId);
+                if (existingRoomSlot == null)
+                {
+                    throw new Exception("RoomSlot not found");
+                }
+
+                existingRoomSlot.SlotNumber = roomSlot.SlotNumber;
+                existingRoomSlot.StartTime = roomSlot.StartTime;
+                existingRoomSlot.EndTime = roomSlot.EndTime;
+                existingRoomSlot.Status = roomSlot.Status;
+
+                await _unitOfWork.RoomSlotRepository().UpdateAsync(existingRoomSlot);
+                await _unitOfWork.SaveAsync();
+                Console.WriteLine($"RoomSlot {roomSlot.RoomSlotId} updated successfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating RoomSlot {roomSlot.RoomSlotId}: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task DeleteRoomSlotAsync(int roomSlotId)
+        {
+            try
+            {
+                var roomSlot = await _unitOfWork.RoomSlotRepository().GetByIdAsync(roomSlotId, rs => rs.Bookings);
+                if (roomSlot == null)
+                {
+                    throw new Exception("RoomSlot not found");
+                }
+
+                if (roomSlot.Bookings != null && roomSlot.Bookings.Any())
+                {
+                    throw new Exception("Cannot delete RoomSlot with existing bookings");
+                }
+
+                await _unitOfWork.RoomSlotRepository().DeleteAsync(roomSlot);
+                await _unitOfWork.SaveAsync();
+                Console.WriteLine($"RoomSlot {roomSlotId} deleted successfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting RoomSlot {roomSlotId}: {ex.Message}");
                 throw;
             }
         }

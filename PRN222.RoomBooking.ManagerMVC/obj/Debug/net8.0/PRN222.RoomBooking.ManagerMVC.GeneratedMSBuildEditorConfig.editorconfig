@@ -34,8 +34,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/C\#/PRN222/Ass/PRN222-Project/PRN222.RoomBooking.ManagerMVC/Views/Rooms/CreateRoomSlot.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcQ3JlYXRlUm9vbVNsb3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/C\#/PRN222/Ass/PRN222-Project/PRN222.RoomBooking.ManagerMVC/Views/Rooms/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\#/PRN222/Ass/PRN222-Project/PRN222.RoomBooking.ManagerMVC/Views/Rooms/DeleteRoomSlot.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRGVsZXRlUm9vbVNsb3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/C\#/PRN222/Ass/PRN222-Project/PRN222.RoomBooking.ManagerMVC/Views/Rooms/Details.cshtml]
@@ -46,12 +54,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/C\#/PRN222/Ass/PRN222-Project/PRN222.RoomBooking.ManagerMVC/Views/Rooms/EditRoomSlot.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRWRpdFJvb21TbG90LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/C\#/PRN222/Ass/PRN222-Project/PRN222.RoomBooking.ManagerMVC/Views/Rooms/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/C\#/PRN222/Ass/PRN222-Project/PRN222.RoomBooking.ManagerMVC/Views/Rooms/ManageBookedSlots.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcTWFuYWdlQm9va2VkU2xvdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/C\#/PRN222/Ass/PRN222-Project/PRN222.RoomBooking.ManagerMVC/Views/Rooms/ManageRoomSlots.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcTWFuYWdlUm9vbVNsb3RzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/C\#/PRN222/Ass/PRN222-Project/PRN222.RoomBooking.ManagerMVC/Views/Shared/Error.cshtml]

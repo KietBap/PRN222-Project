@@ -302,37 +302,40 @@ namespace PRN222.RoomBooking.Services
 
                 booking.BookingStatus = newStatus;
 
-                // Không cần thay đổi trạng thái RoomSlot trong bảng RoomSlots nữa
-                // Trạng thái RoomSlot sẽ được xác định động qua GetAvailableRoomSlotsAsync
-
-                if (newStatus == BookingStatus.Booked)
+                if (newStatus == BookingStatus.Cancelled)
                 {
                     var roomIds = booking.RoomSlots.Select(rs => rs.RoomId).Distinct().ToList();
+                    foreach (var roomSlot in booking.RoomSlots)
+                    {
+                        roomSlot.Status = RoomSlotStatus.Available; // Reset trạng thái slot về Available
+                    }
+
                     foreach (var roomId in roomIds)
                     {
                         var room = await _unitOfWork.RoomRepository().GetByIdAsync(roomId);
                         var allSlots = await _unitOfWork.RoomSlotRepository().GetAsync(rs => rs.RoomId == roomId);
-                        var bookedSlotIds = await GetBookedRoomSlotIdsAsync(roomId, booking.BookingDate);
-
-                        if (allSlots.All(rs => bookedSlotIds.Contains(rs.RoomSlotId)))
+                        if (allSlots.Any(rs => rs.Status == RoomSlotStatus.Available))
                         {
-                            room.Status = RoomStatus.Booked;
+                            room.Status = RoomStatus.Available; // Cập nhật trạng thái phòng
                             await _unitOfWork.RoomRepository().UpdateAsync(room);
                         }
                     }
                 }
-                else if (newStatus == BookingStatus.Cancelled)
+                else if (newStatus == BookingStatus.Booked)
                 {
                     var roomIds = booking.RoomSlots.Select(rs => rs.RoomId).Distinct().ToList();
+                    foreach (var roomSlot in booking.RoomSlots)
+                    {
+                        roomSlot.Status = RoomSlotStatus.Booked; // Cập nhật trạng thái slot thành Booked
+                    }
+
                     foreach (var roomId in roomIds)
                     {
                         var room = await _unitOfWork.RoomRepository().GetByIdAsync(roomId);
                         var allSlots = await _unitOfWork.RoomSlotRepository().GetAsync(rs => rs.RoomId == roomId);
-                        var bookedSlotIds = await GetBookedRoomSlotIdsAsync(roomId, booking.BookingDate);
-
-                        if (bookedSlotIds.Count == 0)
+                        if (!allSlots.Any(rs => rs.Status == RoomSlotStatus.Available))
                         {
-                            room.Status = RoomStatus.Available;
+                            room.Status = RoomStatus.Booked; // Cập nhật trạng thái phòng
                             await _unitOfWork.RoomRepository().UpdateAsync(room);
                         }
                     }

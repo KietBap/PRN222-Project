@@ -16,5 +16,11 @@ namespace PRN222.RoomBooking.Services
         Task CreateRoomAsync(Room room);
         Task DeleteRoomAsync(int roomId);
         Task UpdateRoomAsync(Room room);
+
+        // New methods for RoomSlot management
+        Task<RoomSlot> GetRoomSlotById(int roomSlotId);
+        Task CreateRoomSlotAsync(RoomSlot roomSlot);
+        Task UpdateRoomSlotAsync(RoomSlot roomSlot);
+        Task DeleteRoomSlotAsync(int roomSlotId);
     }
 }

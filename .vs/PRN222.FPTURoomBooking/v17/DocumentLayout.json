@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.userrazor\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|solutionrelative:prn222.roombooking.userrazor\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.managermvc\\views\\rooms\\manageroomslots.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|solutionrelative:prn222.roombooking.managermvc\\views\\rooms\\manageroomslots.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,6 +13,38 @@
     {
       "AbsoluteMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.services\\roomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|solutionrelative:prn222.roombooking.services\\roomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.managermvc\\views\\rooms\\editroomslot.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|solutionrelative:prn222.roombooking.managermvc\\views\\rooms\\editroomslot.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.managermvc\\views\\rooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|solutionrelative:prn222.roombooking.managermvc\\views\\rooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.managermvc\\views\\rooms\\deleteroomslot.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|solutionrelative:prn222.roombooking.managermvc\\views\\rooms\\deleteroomslot.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.managermvc\\views\\rooms\\createroomslot.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|solutionrelative:prn222.roombooking.managermvc\\views\\rooms\\createroomslot.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.services\\iroomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B98E6E1-A8B4-40CF-8171-D69C2B552B17}|PRN222.RoomBooking.Services\\PRN222.RoomBooking.Services.csproj|solutionrelative:prn222.roombooking.services\\iroomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.managermvc\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5F300CF-71D4-4461-AED3-56FF3402A7E1}|PRN222.RoomBooking.ManagerMVC\\PRN222.RoomBooking.ManagerMVC.csproj|solutionrelative:prn222.roombooking.managermvc\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.repositories\\data\\roomslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A839F663-13C4-4BC8-894B-18B5B62A6B80}|PRN222.RoomBooking.Repositories\\PRN222.RoomBooking.Repositories.csproj|solutionrelative:prn222.roombooking.repositories\\data\\roomslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|e:\\c#\\prn222\\ass\\prn222-project\\prn222.roombooking.userrazor\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9F529A4-6F5B-4361-9B77-BF6AEB7802BA}|PRN222.RoomBooking.UserRazor\\PRN222.RoomBooking.UserRazor.csproj|solutionrelative:prn222.roombooking.userrazor\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,21 +54,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 18,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
-              "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACYAAAAAAAAAAAAqwIcAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-02T11:27:33.516Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:11:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
@@ -109,7 +128,7 @@
               "RelativeDocumentMoniker": "PRN222.RoomBooking.Services\\BookingService.cs",
               "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.Services\\BookingService.cs",
               "RelativeToolTip": "PRN222.RoomBooking.Services\\BookingService.cs",
-              "ViewState": "AgIAAMwAAAAAAAAAAAAUwB8BAABgAAAAAAAAAA==",
+              "ViewState": "AgIAACwBAAAAAAAAAAAqwGkBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T11:20:06.684Z",
               "EditorCaption": ""
@@ -122,9 +141,126 @@
               "RelativeDocumentMoniker": "PRN222.RoomBooking.Services\\RoomService.cs",
               "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.Services\\RoomService.cs",
               "RelativeToolTip": "PRN222.RoomBooking.Services\\RoomService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T11:19:43.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManageRoomSlots.cshtml",
+              "DocumentMoniker": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\ManageRoomSlots.cshtml",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\ManageRoomSlots.cshtml",
+              "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\ManageRoomSlots.cshtml",
+              "RelativeToolTip": "PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\ManageRoomSlots.cshtml",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAqwK4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-02T11:49:38.991Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CreateRoomSlot.cshtml",
+              "DocumentMoniker": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\CreateRoomSlot.cshtml",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\CreateRoomSlot.cshtml",
+              "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\CreateRoomSlot.cshtml",
+              "RelativeToolTip": "PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\CreateRoomSlot.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-02T11:54:47.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EditRoomSlot.cshtml",
+              "DocumentMoniker": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\EditRoomSlot.cshtml",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\EditRoomSlot.cshtml",
+              "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\EditRoomSlot.cshtml",
+              "RelativeToolTip": "PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\EditRoomSlot.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAmwB8AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-02T11:55:02.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DeleteRoomSlot.cshtml",
+              "DocumentMoniker": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\DeleteRoomSlot.cshtml",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\DeleteRoomSlot.cshtml",
+              "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\DeleteRoomSlot.cshtml",
+              "RelativeToolTip": "PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\DeleteRoomSlot.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-02T11:55:17.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\Index.cshtml",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\Index.cshtml",
+              "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\Index.cshtml",
+              "RelativeToolTip": "PRN222.RoomBooking.ManagerMVC\\Views\\Rooms\\Index.cshtml",
+              "ViewState": "AgIAALMAAAAAAAAAAAAqwOcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-02T11:59:20.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IRoomService.cs",
+              "DocumentMoniker": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.Services\\IRoomService.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Services\\IRoomService.cs",
+              "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.Services\\IRoomService.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Services\\IRoomService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T11:53:22.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RoomsController.cs",
+              "DocumentMoniker": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Controllers\\RoomsController.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.ManagerMVC\\Controllers\\RoomsController.cs",
+              "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.ManagerMVC\\Controllers\\RoomsController.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.ManagerMVC\\Controllers\\RoomsController.cs",
+              "ViewState": "AgIAAF8BAAAAAAAAAAAmwH0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T11:51:16.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RoomSlot.cs",
+              "DocumentMoniker": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.Repositories\\Data\\RoomSlot.cs",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.Repositories\\Data\\RoomSlot.cs",
+              "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.Repositories\\Data\\RoomSlot.cs",
+              "RelativeToolTip": "PRN222.RoomBooking.Repositories\\Data\\RoomSlot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T11:47:48.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\C#\\PRN222\\Ass\\PRN222-Project\\PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "PRN222.RoomBooking.UserRazor\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAACYAAAAAAAAAAAAqwIcAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-02T11:27:33.516Z",
               "EditorCaption": ""
             }
           ]

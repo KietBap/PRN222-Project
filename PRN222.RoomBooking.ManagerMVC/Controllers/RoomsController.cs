@@ -267,5 +267,131 @@ namespace PRN222.RoomBooking.ManagerMVC.Controllers
             }
         }
 
+        // GET: /Rooms/ManageRoomSlots/5 (where 5 is the RoomId)
+        [HttpGet]
+        public async Task<IActionResult> ManageRoomSlots(int id)
+        {
+            var room = await _roomService.GetRoomById(id);
+            if (room == null)
+            {
+                return NotFound();
+            }
+
+            // The RoomSlots are already included in GetRoomById (as per your existing code)
+            ViewBag.RoomId = id;
+            ViewBag.RoomName = room.RoomName;
+            return View(room.RoomSlots);
+        }
+
+        // GET: /Rooms/CreateRoomSlot/5 (where 5 is the RoomId)
+        [HttpGet]
+        public IActionResult CreateRoomSlot(int id)
+        {
+            var roomSlot = new RoomSlot
+            {
+                RoomId = id
+            };
+            return View(roomSlot);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateRoomSlot(RoomSlot roomSlot)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(roomSlot);
+            }
+
+            try
+            {
+                roomSlot.Status = RoomSlotStatus.Available; // Default status for new slots
+                await _roomService.CreateRoomSlotAsync(roomSlot);
+                TempData["SuccessMessage"] = "RoomSlot created successfully!";
+                return RedirectToAction(nameof(ManageRoomSlots), new { id = roomSlot.RoomId });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", $"Error creating RoomSlot: {ex.Message}");
+                return View(roomSlot);
+            }
+        }
+
+        // GET: /Rooms/EditRoomSlot/5 (where 5 is the RoomSlotId)
+        [HttpGet]
+        public async Task<IActionResult> EditRoomSlot(int id)
+        {
+            var roomSlot = await _roomService.GetRoomSlotById(id);
+            if (roomSlot == null)
+            {
+                return NotFound();
+            }
+            return View(roomSlot);
+        }
+
+        // POST: /Rooms/EditRoomSlot/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditRoomSlot(int id, RoomSlot roomSlot)
+        {
+            if (id != roomSlot.RoomSlotId)
+            {
+                return BadRequest();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(roomSlot);
+            }
+
+            try
+            {
+                await _roomService.UpdateRoomSlotAsync(roomSlot);
+                TempData["SuccessMessage"] = "RoomSlot updated successfully!";
+                return RedirectToAction(nameof(ManageRoomSlots), new { id = roomSlot.RoomId });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", $"Error updating RoomSlot: {ex.Message}");
+                return View(roomSlot);
+            }
+        }
+
+        // GET: /Rooms/DeleteRoomSlot/5 (where 5 is the RoomSlotId)
+        [HttpGet]
+        public async Task<IActionResult> DeleteRoomSlot(int id)
+        {
+            var roomSlot = await _roomService.GetRoomSlotById(id);
+            if (roomSlot == null)
+            {
+                return NotFound();
+            }
+            return View(roomSlot);
+        }
+
+        // POST: /Rooms/DeleteRoomSlot/5
+        [HttpPost, ActionName("DeleteRoomSlot")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteRoomSlotConfirmed(int id)
+        {
+            var roomSlot = await _roomService.GetRoomSlotById(id);
+            if (roomSlot == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                await _roomService.DeleteRoomSlotAsync(id);
+                TempData["SuccessMessage"] = "RoomSlot deleted successfully!";
+                return RedirectToAction(nameof(ManageRoomSlots), new { id = roomSlot.RoomId });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", $"Error deleting RoomSlot: {ex.Message}");
+                return View(roomSlot);
+            }
+        }
+
     }
 }

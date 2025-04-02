@@ -1,0 +1,62 @@
+﻿@using PRN222.RoomBooking.Repositories.Enums
+@model PRN222.RoomBooking.Repositories.Data.RoomSlot
+
+@{
+    ViewData["Title"] = "Edit Room Slot";
+}
+
+<div class="container mt-4">
+    <h2 class="page-title text-center">Edit Room Slot</h2>
+
+    <div class="card p-3 mb-4">
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <p>@error.ErrorMessage</p>
+                }
+            </div>
+        }
+
+        <form asp-action="EditRoomSlot" method="post">
+            <input type="hidden" asp-for="RoomSlotId" />
+            <input type="hidden" asp-for="RoomId" />
+
+            <div class="form-group mb-3">
+                <label asp-for="SlotNumber" class="form-label">Slot Number</label>
+                <input asp-for="SlotNumber" class="form-control" type="number" />
+                <span asp-validation-for="SlotNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="StartTime" class="form-label">Start Time</label>
+                <input asp-for="StartTime" class="form-control" type="time" value="@(Model.StartTime?.ToString("HH:mm") ?? "")" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="EndTime" class="form-label">End Time</label>
+                <input asp-for="EndTime" class="form-control" type="time" value="@(Model.EndTime?.ToString("HH:mm") ?? "")" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Status" class="form-label">Status</label>
+                <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<RoomSlotStatus>()">
+                    <option value="">Select Status</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a asp-action="ManageRoomSlots" asp-route-id="@Model.RoomId" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
