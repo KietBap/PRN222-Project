@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bRa/0tuXr+qA4qCylGlyqqd1yQCmhH95Ujtr7ReA90w=",
+  "Hash": "E3Oi4W8/C4Y+PThxeHeNjuU0aeE0dQc0QQVzjJ9pmpU=",
   "Source": "PRN222.RoomBooking.AdminBlazor",
   "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "PRN222.RoomBooking.AdminBlazor\\wwwroot",
       "Source": "PRN222.RoomBooking.AdminBlazor",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\bundle\\PRN222.RoomBooking.AdminBlazor.styles.css",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\bundle\\PRN222.RoomBooking.AdminBlazor.styles.css",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "PRN222.RoomBooking.AdminBlazor.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\bundle\\PRN222.RoomBooking.AdminBlazor.styles.css"
+      "OriginalItemSpec": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\bundle\\PRN222.RoomBooking.AdminBlazor.styles.css"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PRN222.RoomBooking.AdminBlazor.bundle.scp.css",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PRN222.RoomBooking.AdminBlazor.bundle.scp.css",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "PRN222.RoomBooking.AdminBlazor.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PRN222.RoomBooking.AdminBlazor.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PRN222.RoomBooking.AdminBlazor.bundle.scp.css"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\css\\site.css",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\favicon.ico",
       "SourceId": "PRN222.RoomBooking.AdminBlazor",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Major\\Ki_7_SP25\\PRN222\\projectv2\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\admin\\Desktop\\prn____\\PRN222-Project\\PRN222.RoomBooking.AdminBlazor\\wwwroot\\",
       "BasePath": "_content/PRN222.RoomBooking.AdminBlazor",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",

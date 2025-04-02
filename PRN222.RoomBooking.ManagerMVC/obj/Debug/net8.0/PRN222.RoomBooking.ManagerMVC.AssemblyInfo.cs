@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PRN222.RoomBooking.ManagerMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35ead2b866b6972fe9ee06ce88bc3223e3106815")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e6b891207e7957ae8bca7e715c9f5f28f5a26fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("PRN222.RoomBooking.ManagerMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PRN222.RoomBooking.ManagerMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

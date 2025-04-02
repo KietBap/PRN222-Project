@@ -13,5 +13,8 @@ namespace PRN222.RoomBooking.Services
         //For Manager
         Task<(List<RoomSlot> roomSlots, int totalItems)> GetBookedRoomSlotsForCampusAsync(int campusId, int pageNumber, int pageSize);
         Task<List<RoomSlot>> GetBookedRoomSlotsForRoomAsync(int roomId);
+        Task CreateRoomAsync(Room room);
+        Task DeleteRoomAsync(int roomId);
+        Task UpdateRoomAsync(Room room);
     }
 }
