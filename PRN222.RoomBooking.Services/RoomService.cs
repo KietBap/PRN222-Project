@@ -138,5 +138,93 @@ namespace PRN222.RoomBooking.Services
 
             return room;
         }
+        public async Task CreateRoomAsync(Room room)
+        {
+            try
+            {
+                Console.WriteLine($"Creating room: Name={room.RoomName}, Capacity={room.Capacity}, Status={room.Status}, CampusId={room.CampusId}");
+                await _unitOfWork.RoomRepository().AddAsync(room);
+                await _unitOfWork.SaveAsync();
+                Console.WriteLine($"Room created with ID: {room.RoomId}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in CreateRoomAsync: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task DeleteRoomAsync(int roomId)
+        {
+            try
+            {
+                // Get the room with its room slots
+                var room = await _unitOfWork.RoomRepository()
+                    .GetByIdAsync(roomId, r => r.RoomSlots);
+                if (room == null)
+                {
+                    throw new Exception("Room not found");
+                }
+
+                // Get all room slots for this room with their bookings
+                var roomSlots = await _unitOfWork.RoomSlotRepository()
+                    .GetAsync(rs => rs.RoomId == roomId, rs => rs.Bookings);
+
+                Console.WriteLine($"Found {roomSlots.Count} room slots for RoomId {roomId}");
+
+                // Check if any room slots have bookings
+                if (roomSlots.Any(rs => rs.Bookings != null && rs.Bookings.Any()))
+                {
+                    Console.WriteLine("Room has existing bookings");
+                    throw new Exception("Cannot delete room with existing bookings");
+                }
+
+                // Delete room slots first
+                foreach (var roomSlot in roomSlots)
+                {
+                    await _unitOfWork.RoomSlotRepository().DeleteAsync(roomSlot);
+                }
+
+                // Delete the room
+                await _unitOfWork.RoomRepository().DeleteAsync(room);
+                await _unitOfWork.SaveAsync();
+
+                Console.WriteLine($"Room {roomId} deleted successfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting room {roomId}: {ex.Message}");
+                throw;
+            }
+        }
+        public async Task UpdateRoomAsync(Room room)
+        {
+            try
+            {
+                // Lấy thông tin phòng hiện tại từ database
+                var existingRoom = await _unitOfWork.RoomRepository().GetByIdAsync(room.RoomId);
+                if (existingRoom == null)
+                {
+                    throw new Exception("Room not found");
+                }
+
+                // Cập nhật thông tin phòng
+                existingRoom.RoomName = room.RoomName;
+                existingRoom.Capacity = room.Capacity;
+                existingRoom.Status = room.Status;
+                existingRoom.CampusId = room.CampusId;
+
+                // Lưu thay đổi
+                await _unitOfWork.RoomRepository().UpdateAsync(existingRoom);
+                await _unitOfWork.SaveAsync();
+
+                Console.WriteLine($"Room {room.RoomId} updated successfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating room {room.RoomId}: {ex.Message}");
+                throw;
+            }
+        }
     }
 }

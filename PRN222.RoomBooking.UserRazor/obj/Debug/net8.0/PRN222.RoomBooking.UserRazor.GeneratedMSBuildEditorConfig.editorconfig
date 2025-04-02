@@ -17,71 +17,71 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PRN222.RoomBooking.UserRazor
 build_property.RootNamespace = PRN222.RoomBooking.UserRazor
-build_property.ProjectDir = D:\Major\Ki_7_SP25\PRN222\projectv2\PRN222.RoomBooking.UserRazor\
+build_property.ProjectDir = C:\Users\admin\Desktop\prn____\PRN222-Project\PRN222.RoomBooking.UserRazor\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Major\Ki_7_SP25\PRN222\projectv2\PRN222.RoomBooking.UserRazor
+build_property.MSBuildProjectDirectory = C:\Users\admin\Desktop\prn____\PRN222-Project\PRN222.RoomBooking.UserRazor
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/AccessDenied.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjZXNzRGVuaWVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/Bookings/BookingHistory.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/Bookings/BookingHistory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va2luZ3NcQm9va2luZ0hpc3RvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/Bookings/CancelBooking.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/Bookings/CancelBooking.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va2luZ3NcQ2FuY2VsQm9va2luZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/Bookings/CreateBooking.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/Bookings/CreateBooking.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va2luZ3NcQ3JlYXRlQm9va2luZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/Error.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/Index.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/Privacy.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/Rooms/Details.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/Rooms/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/Rooms/Index.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/Rooms/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/User/Login.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/User/Logout.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/User/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/_ViewImports.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/_ViewStart.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Major/Ki_7_SP25/PRN222/projectv2/PRN222.RoomBooking.UserRazor/Pages/Shared/_Layout.cshtml]
+[C:/Users/admin/Desktop/prn____/PRN222-Project/PRN222.RoomBooking.UserRazor/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-189zouk80m
