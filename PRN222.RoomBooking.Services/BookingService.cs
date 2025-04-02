@@ -29,7 +29,7 @@ namespace PRN222.RoomBooking.Services
 
                 if (alreadyBookedSlots.Any())
                 {
-                    return false;
+                    return false; // Có slot đã được booked cho ngày này
                 }
 
                 var booking = new Booking
@@ -45,7 +45,7 @@ namespace PRN222.RoomBooking.Services
                 foreach (var roomSlotId in roomSlotIds)
                 {
                     var roomSlot = await _unitOfWork.RoomSlotRepository().GetByIdAsync(roomSlotId);
-                    if (roomSlot != null && roomSlot.Status == RoomSlotStatus.Available)
+                    if (roomSlot != null)
                     {
                         booking.RoomSlots.Add(roomSlot);
                     }
@@ -60,7 +60,7 @@ namespace PRN222.RoomBooking.Services
                 await _unitOfWork.SaveAsync();
                 await transaction.CommitAsync();
 
-                // Gửi thông báo đến user qua SignalR của Razor Pages
+                // Gửi thông báo qua SignalR
                 await _hubContext.Clients.User(userCode)
                     .SendAsync("ReceiveNotification", "Your booking has been successfully submitted and is awaiting approval!");
 
@@ -95,14 +95,21 @@ namespace PRN222.RoomBooking.Services
 
         public async Task<List<int>> GetBookedRoomSlotIdsAsync(int roomId, DateOnly bookingDate)
         {
-            // Get all bookings for the given room and date
+            // Lấy tất cả bookings cho phòng và ngày cụ thể
             var bookings = await _unitOfWork.BookingRepository().GetAsync(
-                b => b.BookingDate == bookingDate && b.RoomSlots.Any(rs => rs.RoomId == roomId) && b.BookingStatus != BookingStatus.Cancelled,
+                b => b.BookingDate == bookingDate
+                     && b.RoomSlots.Any(rs => rs.RoomId == roomId)
+                     && b.BookingStatus != BookingStatus.Cancelled,
                 includes: new Expression<Func<Booking, object>>[] { b => b.RoomSlots }
             );
 
-            // Extract the RoomSlotIds that are already booked
-            var bookedRoomSlotIds = bookings.SelectMany(b => b.RoomSlots).Select(rs => rs.RoomSlotId).Distinct().ToList();
+            // Trích xuất RoomSlotIds đã được booked
+            var bookedRoomSlotIds = bookings
+                .SelectMany(b => b.RoomSlots)
+                .Select(rs => rs.RoomSlotId)
+                .Distinct()
+                .ToList();
+
             return bookedRoomSlotIds;
         }
         public async Task<bool> CancelBookingAsync(int bookingId, string userCode)
@@ -295,40 +302,37 @@ namespace PRN222.RoomBooking.Services
 
                 booking.BookingStatus = newStatus;
 
-                if (newStatus == BookingStatus.Cancelled)
+                // Không cần thay đổi trạng thái RoomSlot trong bảng RoomSlots nữa
+                // Trạng thái RoomSlot sẽ được xác định động qua GetAvailableRoomSlotsAsync
+
+                if (newStatus == BookingStatus.Booked)
                 {
                     var roomIds = booking.RoomSlots.Select(rs => rs.RoomId).Distinct().ToList();
-                    foreach (var roomSlot in booking.RoomSlots)
-                    {
-                        roomSlot.Status = RoomSlotStatus.Available;
-                    }
-
                     foreach (var roomId in roomIds)
                     {
                         var room = await _unitOfWork.RoomRepository().GetByIdAsync(roomId);
                         var allSlots = await _unitOfWork.RoomSlotRepository().GetAsync(rs => rs.RoomId == roomId);
-                        if (allSlots.Any(rs => rs.Status == RoomSlotStatus.Available))
+                        var bookedSlotIds = await GetBookedRoomSlotIdsAsync(roomId, booking.BookingDate);
+
+                        if (allSlots.All(rs => bookedSlotIds.Contains(rs.RoomSlotId)))
                         {
-                            room.Status = RoomStatus.Available;
+                            room.Status = RoomStatus.Booked;
                             await _unitOfWork.RoomRepository().UpdateAsync(room);
                         }
                     }
                 }
-                else if (newStatus == BookingStatus.Booked)
+                else if (newStatus == BookingStatus.Cancelled)
                 {
                     var roomIds = booking.RoomSlots.Select(rs => rs.RoomId).Distinct().ToList();
-                    foreach (var roomSlot in booking.RoomSlots)
-                    {
-                        roomSlot.Status = RoomSlotStatus.Booked;
-                    }
-
                     foreach (var roomId in roomIds)
                     {
                         var room = await _unitOfWork.RoomRepository().GetByIdAsync(roomId);
                         var allSlots = await _unitOfWork.RoomSlotRepository().GetAsync(rs => rs.RoomId == roomId);
-                        if (!allSlots.Any(rs => rs.Status == RoomSlotStatus.Available))
+                        var bookedSlotIds = await GetBookedRoomSlotIdsAsync(roomId, booking.BookingDate);
+
+                        if (bookedSlotIds.Count == 0)
                         {
-                            room.Status = RoomStatus.Booked;
+                            room.Status = RoomStatus.Available;
                             await _unitOfWork.RoomRepository().UpdateAsync(room);
                         }
                     }
@@ -338,14 +342,12 @@ namespace PRN222.RoomBooking.Services
                 await _unitOfWork.SaveAsync();
                 await transaction.CommitAsync();
 
-                // Gửi thông báo tới user qua SignalR
+                // Gửi thông báo qua SignalR
                 await _hubContext.Clients.User(booking.UserCode)
                     .SendAsync("ReceiveNotification", $"Booking #{bookingId} has been {newStatus.ToString().ToLower()}");
 
-                // Gửi tín hiệu để làm mới trang Booking History của user
                 await _hubContext.Clients.User(booking.UserCode)
                     .SendAsync("RefreshBookingHistory", bookingId);
-
 
                 return true;
             }

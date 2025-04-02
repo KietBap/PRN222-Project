@@ -324,3 +324,8 @@ C:\Users\admin\Desktop\prn____\PRN222-Project\PRN222.RoomBooking.ManagerMVC\obj\
 C:\Users\admin\Desktop\prn____\PRN222-Project\PRN222.RoomBooking.ManagerMVC\obj\Debug\net8.0\PRN222.RoomBooking.ManagerMVC.pdb
 C:\Users\admin\Desktop\prn____\PRN222-Project\PRN222.RoomBooking.ManagerMVC\obj\Debug\net8.0\PRN222.RoomBooking.ManagerMVC.genruntimeconfig.cache
 C:\Users\admin\Desktop\prn____\PRN222-Project\PRN222.RoomBooking.ManagerMVC\obj\Debug\net8.0\ref\PRN222.RoomBooking.ManagerMVC.dll
+E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.ManagerMVC\bin\Debug\net8.0\libman.json
+E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.ManagerMVC\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.ManagerMVC\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.ManagerMVC\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.ManagerMVC\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll

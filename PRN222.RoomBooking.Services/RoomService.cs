@@ -20,17 +20,21 @@ namespace PRN222.RoomBooking.Services
 
         public async Task<List<RoomSlot>> GetAvailableRoomSlotsAsync(int roomId, DateOnly bookingDate)
         {
-            // Get all RoomSlots for the room
+            // Lấy tất cả RoomSlots cho phòng
             var roomSlots = await _unitOfWork.RoomSlotRepository().GetAsync(
-                rs => rs.RoomId == roomId && rs.Status == RoomSlotStatus.Available,
+                rs => rs.RoomId == roomId,
                 includes: new Expression<Func<RoomSlot, object>>[] { rs => rs.Room }
             );
 
-            // Get booked RoomSlotIds for the given date
+            // Lấy danh sách RoomSlotIds đã được booked cho ngày cụ thể
             var bookedRoomSlotIds = await _bookingService.GetBookedRoomSlotIdsAsync(roomId, bookingDate);
 
-            // Filter out booked slots
-            return roomSlots.Where(rs => !bookedRoomSlotIds.Contains(rs.RoomSlotId)).ToList();
+            // Lọc ra các slot chưa được booked cho ngày này
+            var availableSlots = roomSlots
+                .Where(rs => !bookedRoomSlotIds.Contains(rs.RoomSlotId))
+                .ToList();
+
+            return availableSlots;
         }
 
         //For Manager

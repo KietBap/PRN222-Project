@@ -1338,3 +1338,4 @@ C:\Users\admin\Desktop\prn____\PRN222-Project\PRN222.RoomBooking.UserRazor\obj\D
 C:\Users\admin\Desktop\prn____\PRN222-Project\PRN222.RoomBooking.UserRazor\obj\Debug\net8.0\PRN222.RoomBooking.UserRazor.pdb
 C:\Users\admin\Desktop\prn____\PRN222-Project\PRN222.RoomBooking.UserRazor\obj\Debug\net8.0\PRN222.RoomBooking.UserRazor.genruntimeconfig.cache
 C:\Users\admin\Desktop\prn____\PRN222-Project\PRN222.RoomBooking.UserRazor\obj\Debug\net8.0\ref\PRN222.RoomBooking.UserRazor.dll
+E:\C#\PRN222\Ass\PRN222-Project\PRN222.RoomBooking.UserRazor\bin\Debug\net8.0\libman.json
