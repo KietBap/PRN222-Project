@@ -60,9 +60,6 @@ namespace PRN222.RoomBooking.Services
                 await _unitOfWork.SaveAsync();
                 await transaction.CommitAsync();
 
-                // Gửi thông báo qua SignalR
-                await _hubContext.Clients.User(userCode)
-                    .SendAsync("ReceiveNotification", "Your booking has been successfully submitted and is awaiting approval!");
 
                 var roomSlots = await _unitOfWork.RoomSlotRepository().GetByIdAsync(roomSlotIds.First(), rs => rs.Room, rs => rs.Room.Campus);
                 var campusName = roomSlots?.Room?.Campus?.CampusName;
@@ -157,6 +154,26 @@ namespace PRN222.RoomBooking.Services
                 await _unitOfWork.SaveAsync();
                 await transaction.CommitAsync();
 
+                var user = await _unitOfWork.UserRepository().GetByIdAsync(userCode, u => u.Campus);
+                var campusName = user.Campus.CampusName;
+
+                if (!string.IsNullOrEmpty(campusName))
+                {
+                    var message = $"There is a booking at campus {campusName} cancel booking!";
+                    using var httpClient = new HttpClient();
+                    var request = new { CampusName = campusName, Message = message };
+                    var content = new StringContent(
+                        System.Text.Json.JsonSerializer.Serialize(request),
+                        System.Text.Encoding.UTF8,
+                        "application/json");
+
+                    var response = await httpClient.PostAsync("https://localhost:7285/api/NotifyManager", content);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("Failed to notify manager: " + response.ReasonPhrase);
+                    }
+                }
+
                 return true;
             }
             catch (Exception)
@@ -207,7 +224,7 @@ namespace PRN222.RoomBooking.Services
         {
             return await _unitOfWork.BookingRepository().GetByIdAsync(
                 bookingId,
-                includes: new Expression<Func<Booking, object>>[] { b => b.RoomSlots, b => b.RoomSlots.Select(rs => rs.Room) }
+                b => b.RoomSlots
             );
         }
 
@@ -341,16 +358,19 @@ namespace PRN222.RoomBooking.Services
                     }
                 }
 
+                if (!string.IsNullOrEmpty(booking.UserCode))
+                {
+                    var message = $"Booking #{bookingId} has been {newStatus.ToString().ToLower()} by the manager.";
+                    await _hubContext.Clients.User(booking.UserCode).SendAsync("ReceiveUserNotification", message);
+                }
+
+
                 await _unitOfWork.BookingRepository().UpdateAsync(booking);
                 await _unitOfWork.SaveAsync();
                 await transaction.CommitAsync();
 
-                // Gửi thông báo qua SignalR
-                await _hubContext.Clients.User(booking.UserCode)
-                    .SendAsync("ReceiveNotification", $"Booking #{bookingId} has been {newStatus.ToString().ToLower()}");
 
-                await _hubContext.Clients.User(booking.UserCode)
-                    .SendAsync("RefreshBookingHistory", bookingId);
+
 
                 return true;
             }

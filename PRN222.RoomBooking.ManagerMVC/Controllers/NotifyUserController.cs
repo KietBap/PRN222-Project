@@ -20,7 +20,7 @@ namespace PRN222.RoomBooking.ManagerMVC.Controllers
         {
             // Gửi thông báo tới user cụ thể
             await _hubContext.Clients.User(request.UserCode)
-                .SendAsync("ReceiveNotification", request.Message);
+                .SendAsync("ReceiveUserNotification", request.Message);
 
             // Gửi sự kiện làm mới Booking History
             await _hubContext.Clients.User(request.UserCode)

@@ -39,7 +39,7 @@ namespace PRN222.RoomBooking.Services.Hubs
         // Gửi thông báo đến một user cụ thể
         public async Task SendNotificationToUser(string userCode, string message)
         {
-            await Clients.User(userCode).SendAsync("ReceiveNotification", message);
+            await Clients.User(userCode).SendAsync("ReceiveUserNotification", message);
         }
 
         // Gửi thông báo đến tất cả manager của một campus

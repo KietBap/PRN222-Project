@@ -196,7 +196,6 @@
                                     {
                                         <div>
                                             <strong>Room Name:</strong> @roomSlot.Room.RoomName <br />
-                                            <strong>Campus:</strong> @roomSlot.Room.Campus?.CampusName <br />
                                             <strong>Capacity:</strong> @roomSlot.Room.Capacity <br />
                                             <strong>Status:</strong>
                                             <span class="badge @(roomSlot.Room.Status == RoomStatus.Available ? "bg-success" : roomSlot.Room.Status == RoomStatus.Booked ? "bg-warning" : "bg-danger")">
@@ -257,7 +256,7 @@
     <!-- Nút điều hướng -->
     <div class="mt-4 text-center">
         <a asp-page="/Index" class="btn btn-primary me-2">Back to Home</a>
-        <a asp-page="/Bookings/CreateBooking" class="btn btn-success">Create New Booking</a>
+        <a asp-page="/Rooms/Index" class="btn btn-success">Create New Booking</a>
     </div>
 </div>
 
