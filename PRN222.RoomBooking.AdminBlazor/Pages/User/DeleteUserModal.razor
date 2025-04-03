@@ -25,6 +25,10 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-danger"  @onclick="HandleConfirm" >Delete</button>
             </div>
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <div class="alert alert-danger">@errorMessage</div>
+            }
         </div>
     </div>
 </div>
@@ -32,15 +36,23 @@
 @code {
     [Parameter] public User? User { get; set; }
     [Parameter] public EventCallback OnConfirmDelete { get; set; }
+    private string errorMessage = "";
 
     private async Task HandleConfirm()
     {
-        if (User != null)
+        try
         {
-            await UserService.DeleteUser(User.UserCode); 
-            await HubContext.Clients.All.SendAsync("ReloadPage");
-            await OnConfirmDelete.InvokeAsync();
-            await JSRuntime.InvokeVoidAsync("closeModal", "modalId");
+            if (User != null)
+            {
+                await UserService.DeleteUser(User.UserCode);
+                await HubContext.Clients.All.SendAsync("ReloadPage");
+                await OnConfirmDelete.InvokeAsync();
+                await JSRuntime.InvokeVoidAsync("closeModal", "modalId");
+            }
+        }catch(Exception ex)
+        {
+            errorMessage = "Cannot delete: This user is still active!";
         }
+
     }
 }
