@@ -13,17 +13,13 @@ namespace PRN222.RoomBooking.UserRazor.Pages.Bookings
     [Authorize(Roles = "User")]
     public class CreateBookingModel : PageModel
     {
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IBookingService _bookingService;
         private readonly IRoomService _roomService;
-        private readonly IHubContext<NotificationHub> _hubContext;
 
-        public CreateBookingModel(IUnitOfWork unitOfWork, IBookingService bookingService, IRoomService roomService, IHubContext<NotificationHub> hubContext)
+        public CreateBookingModel(IBookingService bookingService, IRoomService roomService)
         {
-            _unitOfWork = unitOfWork;
             _bookingService = bookingService;
             _roomService = roomService;
-            _hubContext = hubContext;
         }
 
         [BindProperty]

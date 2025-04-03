@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using PRN222.RoomBooking.Repositories.Data;
 using PRN222.RoomBooking.Repositories.Enums;
 using PRN222.RoomBooking.Services;
+using PRN222.RoomBooking.Services.Hubs;
 using System.Threading.Tasks;
 
 namespace PRN222.RoomBooking.ManagerMVC.Controllers
@@ -54,6 +57,7 @@ namespace PRN222.RoomBooking.ManagerMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ApproveBooking(int bookingId)
         {
+            var booking = await _bookingService.GetBookingByIdAsync(bookingId);
             var success = await _bookingService.UpdateBookingStatusAsync(bookingId, BookingStatus.Booked);
             if (success)
             {
@@ -71,6 +75,7 @@ namespace PRN222.RoomBooking.ManagerMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CancelBooking(int bookingId)
         {
+            var booking = await _bookingService.GetBookingByIdAsync(bookingId);
             var success = await _bookingService.UpdateBookingStatusAsync(bookingId, BookingStatus.Cancelled);
             if (success)
             {

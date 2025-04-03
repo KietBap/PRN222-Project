@@ -49,11 +49,20 @@
                         var userName = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
                         <span class="text-white fw-bold me-3">Welcome, @userName</span>
                         <div class="dropdown me-3">
-                            <a href="#" class="text-white position-relative" id="notificationDropdown" data-bs-toggle="dropdown">
+                            <a href="#" class="text-white position-relative" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-bell-fill" style="font-size: 1.5rem;"></i>
-                                <span id="notificationCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">0</span>
+                                <span id="notificationCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                    <span class="visually-hidden">unread notifications</span>
+                                </span>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end" id="notificationList" style="max-height: 300px; overflow-y: auto;"></ul>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="max-height: 300px; overflow-y: auto;">
+                                <li class="dropdown-item-text fw-bold">Notifications</li>
+                                <li><hr class="dropdown-divider"></li>
+                                <div id="notificationList">
+                                    <!-- Thông báo sẽ được thêm động bằng JavaScript -->
+                                </div>
+                            </ul>
                         </div>
                         <a class="btn btn-outline-light" asp-page="/User/Logout">Logout</a>
                     }
@@ -88,25 +97,30 @@
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="~/js/microsoft/signalr/dist/browser/signalr.js"></script>
     <script>
+        let notificationCount = 0;
+
         const connection = new signalR.HubConnectionBuilder()
-            .withUrl("/notificationHub")
+            .withUrl("/notificationHub", { withCredentials: true })
             .withAutomaticReconnect()
             .configureLogging(signalR.LogLevel.Information)
             .build();
 
-        connection.on("ReceiveNotification", (message) => {
+        connection.on("ReceiveUserNotification", function (message) {
+            console.log("Received Notification:", message);
+            alert("📢 Notification: " + message);
             showToast(message);
             addNotification(message);
         });
 
-        connection.on("RefreshBookingHistory", (bookingId) => {
-            // Kiểm tra xem user có đang ở trang BookingHistory không
+        connection.on("RefreshBookingHistory", function () {
             if (window.location.pathname.toLowerCase().includes('/bookings/bookinghistory')) {
-                window.location.reload(); // Tải lại trang nếu đang ở BookingHistory
+                window.location.reload();
             }
         });
 
-        connection.start().catch(err => console.error(err));
+        connection.start()
+            .then(() => console.log("Connected to SignalR"))
+            .catch(err => console.error("SignalR Connection Error:", err));
 
         function showToast(message) {
             Toastify({
@@ -114,22 +128,29 @@
                 duration: 3000,
                 gravity: "top",
                 position: "right",
-                backgroundColor: "#4CAF50"
+                style: { background: "#4CAF50" }
             }).showToast();
         }
 
         function addNotification(message) {
             const notificationList = document.getElementById("notificationList");
-            const notificationCount = document.getElementById("notificationCount");
+            const notificationCountBadge = document.getElementById("notificationCount");
+
+            if (notificationList.querySelector(".text-muted")) {
+                notificationList.innerHTML = "";
+            }
 
             const newItem = document.createElement("li");
             newItem.classList.add("dropdown-item");
-            newItem.innerHTML = `<small class="text-muted">${new Date().toLocaleString()}</small><p>${message}</p>`;
+            newItem.innerHTML = `<small class="text-muted">${new Date().toLocaleString()}</small><p class="mb-0">${message}</p>`;
 
             notificationList.prepend(newItem);
-            notificationCount.innerText = parseInt(notificationCount.innerText || "0") + 1;
-            notificationCount.classList.remove("d-none");
+
+            notificationCount++;
+            notificationCountBadge.textContent = notificationCount;
+            notificationCountBadge.classList.remove("d-none");
         }
+        console.log("User Identity: @User.Identity.IsAuthenticated, User ID: @User.FindFirst(ClaimTypes.NameIdentifier)?.Value");
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
